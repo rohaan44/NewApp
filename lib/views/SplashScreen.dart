@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
 import 'package:paysense/views/HomeScreen.dart';
-import 'package:paysense/views/LoginScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,18 +17,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-  
   @override
   void initState() {
     super.initState();
 
     Timer(const Duration(seconds: 5), () {
-      Get.to(()=>HomeScreen()); // Navigate to LoginView
+      Get.to(() => HomeScreen()); // Navigate to LoginView
     });
   }
+
   @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -49,8 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         'Splash Logo', // Optional: For accessibility
                     placeholderBuilder: (BuildContext context) =>
                         CircularProgressIndicator(), // Optional: Placeholder while loading
-                    fit: BoxFit
-                        .contain,
+                    fit: BoxFit.contain,
                   ),
                 ),
                 Center(

@@ -8,8 +8,8 @@ class ColorUtil {
   static Color dividercolor = const Color(0xffB0BEC5);
   static Color bordercolor =const Color(0xff5AA7FF);
   static Color circlecolor =const Color(0xffD9E8F9);
-  static Color blackcolor = Colors.black;
-  static Color whitecolor = Colors.white;
+  static Color blackcolor = Color(0xff141a16);
+  static Color whitecolor = Color(0xffFDFDFD);
   static Color heading = const Color(0xff459BFF);
   static Color containercolor =const Color(0xff6DAFFF);
 

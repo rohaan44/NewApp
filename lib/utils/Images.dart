@@ -2,6 +2,7 @@ class DummyImg {
   static String img1 = "assets/images/img.svg";
   static String logo = "assets/images/logo.svg";
   static String icon = "assets/images/drawer.svg";
+  static String liteDrawer = "assets/images/liteDrawer.svg";
   static String folder = "assets/images/folder.svg";
   static String bill = "assets/images/bill.svg";
   static String home = "assets/images/home.svg";
@@ -30,5 +31,4 @@ class DummyImg {
   static String closecircle = "assets/images/closecircle.svg";
   static String commute = "assets/images/commute.svg";
   static String splashLogo = 'assets/images/splashLogo.svg';
-
 }

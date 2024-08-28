@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/UserController.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
+import 'package:paysense/views/SendamountScreen.dart';
 import 'package:paysense/views/TabbarView.dart';
 import 'package:paysense/views/UiTemplate.dart';
 import 'package:paysense/widgets/RoundButton.dart';
@@ -23,6 +24,7 @@ class DashboardScreen extends StatelessWidget {
       return SafeArea(
         child: Scaffold(
           body: RefreshIndicator(
+              color: ColorUtil.bgblue,
               onRefresh: _refreshScreen,
               child: Stack(
                 children: [
@@ -37,7 +39,7 @@ class DashboardScreen extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 35, vertical: 45.0),
+                                horizontal: 30, vertical: 15.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -102,7 +104,7 @@ class DashboardScreen extends StatelessWidget {
                                             ? ColorUtil.blackcolor
                                             : ColorUtil.whitecolor,
                                         fontSize: 50,
-                                        height: 1.15,
+                                        height: 1.3,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ),
@@ -124,7 +126,7 @@ class DashboardScreen extends StatelessWidget {
                             }),
                           ),
                           SizedBox(
-                            height: 25,
+                            height: 15,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 35),
@@ -133,7 +135,7 @@ class DashboardScreen extends StatelessWidget {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    Get.toNamed('/BePayAmntView');
+                                    Get.to(() => SendAmountScreen());
                                   },
                                   child: RoundButton(
                                     iconn: Icons.call_made_outlined,
@@ -165,7 +167,13 @@ class DashboardScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const TabBarVieww(),
+                          const Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: const TabBarVieww(),
+                          ),
+                          SizedBox(
+                            height: 50,
+                          )
                         ],
                       )
                     ],

@@ -30,7 +30,7 @@ class _TabBarViewwState extends State<TabBarVieww>
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(
-          maxHeight: 370, minHeight: 200, maxWidth: 500, minWidth: 200),
+          maxHeight: 370, minHeight: 200, maxWidth: 450, minWidth: 200),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
@@ -41,13 +41,14 @@ class _TabBarViewwState extends State<TabBarVieww>
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
-                height: 48,
+                height: 40,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: TabBar(
+                  dividerColor: Colors.transparent,
                   unselectedLabelColor: Colors.black,
                   labelColor: Colors.white,
                   indicatorColor: Colors.white,
@@ -144,7 +145,7 @@ class _TabBarViewwState extends State<TabBarVieww>
       title: Text(
         title,
         style: GoogleFonts.poppins(
-          fontSize: 17,
+          fontSize: 16,
           fontWeight: FontWeight.w500,
           color: Colors.white,
         ),
@@ -152,7 +153,7 @@ class _TabBarViewwState extends State<TabBarVieww>
       subtitle: Text(
         subtitle,
         style: GoogleFonts.poppins(
-          fontSize: 14,
+          fontSize: 13,
           fontWeight: FontWeight.w400,
           color: Colors.white,
         ),

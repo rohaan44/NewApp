@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
@@ -19,7 +18,7 @@ class FingerKeypad extends StatefulWidget {
 
 class _FingerKeypadState extends State<FingerKeypad> {
   late final LocalAuthentication auth;
-   bool _supportState = false;
+  bool _supportState = false;
   @override
   void initState() {
     super.initState();
@@ -56,7 +55,7 @@ class _FingerKeypadState extends State<FingerKeypad> {
               },
               child: Icon(
                 Icons.fingerprint,
-                size: 25.sp,
+                size: 25,
                 color: isDarkMode ? Colors.white : Colors.black87,
               ),
             ),
@@ -68,7 +67,7 @@ class _FingerKeypadState extends State<FingerKeypad> {
               child: Text(key,
                   style: GoogleFonts.poppins(
                       color: isDarkMode ? Colors.white : Colors.black87,
-                      fontSize: 25.sp,
+                      fontSize: 25,
                       height: 2.1,
                       fontWeight: FontWeight.w500)),
             ),

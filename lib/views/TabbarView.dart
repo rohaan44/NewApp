@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class TabBarVieww extends StatefulWidget {
   const TabBarVieww({super.key});
@@ -29,172 +28,133 @@ class _TabBarViewwState extends State<TabBarVieww>
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(
-            maxHeight: 370, minHeight: 200, maxWidth: 500, minWidth: 200),
-        child: Container(
-          height: MediaQuery.of(context).size.height * 0.51,
-          width: MediaQuery.of(context).size.width * 1,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            color: ColorUtil.bgblue,
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  height: 48,
-                  width: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25)),
-                  child: Column(
-                    children: [
-                      TabBar(dividerColor: Colors.transparent,
-                        unselectedLabelColor: Colors.black,
-                        labelColor: Colors.white,
-                         indicatorColor: Colors.white,
-                        indicatorSize: TabBarIndicatorSize.tab,
-                        indicatorWeight: 2,
-                        labelStyle: GoogleFonts.poppins(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight
-                                .w400), // Set the font size of the selected tab
-                        unselectedLabelStyle: GoogleFonts.poppins(
-                            fontSize: 18, fontWeight: FontWeight.w400),
-                        indicator: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: const Color(0xff3894FF),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        controller: tabController,
-                        tabs: const [
-                          Tab(
-                            text: 'Services',
-                          ),
-                          Tab(
-                            text: 'Transactions',
-                          ),
-                        ],
-                      ),
-                    ],
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+          maxHeight: 370, minHeight: 200, maxWidth: 500, minWidth: 200),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          color: ColorUtil.bgblue,
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                height: 48,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: TabBar(
+                  unselectedLabelColor: Colors.black,
+                  labelColor: Colors.white,
+                  indicatorColor: Colors.white,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorWeight: 2,
+                  labelStyle: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
                   ),
+                  unselectedLabelStyle: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  indicator: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: const Color(0xff3894FF),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  controller: tabController,
+                  tabs: const [
+                    Tab(text: 'Services'),
+                    Tab(text: 'Transactions'),
+                  ],
                 ),
               ),
-              Expanded(
-                child: TabBarView(
-                  controller: tabController,
-                  children: [
-                    Column(
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
                       children: [
-                        ListTile(
-                          leading: const CircleAvatar(
-                            radius: 40,
-                            backgroundColor: Color(0xff3894FF),
-                            child: Icon(
-                              Icons.refresh,
-                              color: Colors.white,
-                            ),
-                          ),
-                          title: Text(
-                            "Easy Load",
-                            style: GoogleFonts.poppins(
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                          subtitle: Text(
-                            "Get instant mobile load on single click.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white),
-                          ),
+                        _buildListTile(
+                          icon: Icons.refresh,
+                          title: "Easy Load",
+                          subtitle: "Get instant mobile load on single click.",
                         ),
-                        ListTile(
-                          leading: CircleAvatar(
-                            radius: 40,
-                            backgroundColor: const Color(0xff3894FF),
-                            child: Image.asset(
-                              DummyImg.bill,
-                              color: Colors.white,
-                            ),
-                          ),
-                          title: Text(
-                            "Bill Payments",
-                            style: GoogleFonts.poppins(
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                          subtitle: Text(
-                            "Pay your all utility bills using Pay Sense.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white),
-                          ),
+                        _buildListTile(
+                          icon: Icons.receipt_long,
+                          title: "Bill Payments",
+                          subtitle:
+                              "Pay your all utility bills using Pay Sense.",
+                          image: DummyImg.bill,
                         ),
-                        ListTile(
-                          leading: const CircleAvatar(
-                            radius: 40,
-                            backgroundColor: Color(0xff3894FF),
-                            child: Icon(
-                              Icons.splitscreen,
-                              color: Colors.white,
-                            ),
-                          ),
-                          title: Text(
-                            "Bill Split",
-                            style: GoogleFonts.poppins(
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                          subtitle: Text(
-                            "Split your bills with friends.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white),
-                          ),
+                        _buildListTile(
+                          icon: Icons.splitscreen,
+                          title: "Bill Split",
+                          subtitle: "Split your bills with friends.",
                         ),
-                        ListTile(
-                          leading: const CircleAvatar(
-                            radius: 40,
-                            backgroundColor: Color(0xff3894FF),
-                            child: Icon(
-                              Icons.add,
-                              size: 35,
-                              color: Colors.white,
-                            ),
-                          ),
-                          title: Text(
-                            "More",
-                            style: GoogleFonts.poppins(
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                          subtitle: Text(
-                            "Explore more Pay Sense services.",
-                            style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white),
-                          ),
+                        _buildListTile(
+                          icon: Icons.add,
+                          title: "More",
+                          subtitle: "Explore more Pay Sense services.",
                         ),
                       ],
                     ),
-                    const Text("Checccccck"),
-                  ],
-                ),
+                  ),
+                  const Center(
+                    child: Text(
+                      "Transactions",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildListTile({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    String? image,
+  }) {
+    return ListTile(
+      leading: CircleAvatar(
+        radius: 40,
+        backgroundColor: const Color(0xff3894FF),
+        child: image != null
+            ? Image.asset(
+                image,
+                color: Colors.white,
               )
-            ],
-          ),
+            : Icon(
+                icon,
+                color: Colors.white,
+              ),
+      ),
+      title: Text(
+        title,
+        style: GoogleFonts.poppins(
+          fontSize: 17,
+          fontWeight: FontWeight.w500,
+          color: Colors.white,
+        ),
+      ),
+      subtitle: Text(
+        subtitle,
+        style: GoogleFonts.poppins(
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
         ),
       ),
     );

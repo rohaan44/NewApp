@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "976972312564",
+    "project_id": "paysensenew",
+    "storage_bucket": "paysensenew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976972312564:android:648fe0b99c565d2bb953a1",
+        "android_client_info": {
+          "package_name": "com.example.paysense"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDimjijAiJvx5FKAlC7EO6_kSxIYLPfcxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976972312564:android:f487a8efdf8b7c82b953a1",
+        "android_client_info": {
+          "package_name": "com.example.yourapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDimjijAiJvx5FKAlC7EO6_kSxIYLPfcxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976972312564:android:74cedeaf6700ce89b953a1",
+        "android_client_info": {
+          "package_name": "com.paysense.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDimjijAiJvx5FKAlC7EO6_kSxIYLPfcxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:976972312564:android:3b7034134aaecfe0b953a1",
+        "android_client_info": {
+          "package_name": "com.paysensenew.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDimjijAiJvx5FKAlC7EO6_kSxIYLPfcxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

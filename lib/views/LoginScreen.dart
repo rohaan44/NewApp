@@ -23,6 +23,7 @@ class LoginScreen extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             const Uitemplate(),
@@ -109,6 +110,7 @@ class LoginScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         RoundedTextField(
+                          controller: loginController.emailController,
                           focusNode: loginController.emailFocusNode,
                           validator: (value) {
                             if (value == null || value.isEmpty) {

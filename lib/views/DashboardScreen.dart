@@ -98,7 +98,10 @@ class DashboardScreen extends StatelessWidget {
                                     Text(
                                       "Rs. ${userData['amount']}",
                                       style: GoogleFonts.inter(
-                                        fontSize: 30,
+                                        color: isDarkMode
+                                            ? ColorUtil.blackcolor
+                                            : ColorUtil.whitecolor,
+                                        fontSize: 50,
                                         height: 1.15,
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -107,6 +110,9 @@ class DashboardScreen extends StatelessWidget {
                                     Text(
                                       'Wallet Id : ${userData['phoneNumber']}',
                                       style: GoogleFonts.poppins(
+                                        color: isDarkMode
+                                            ? ColorUtil.blackcolor
+                                            : ColorUtil.whitecolor,
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -117,9 +123,11 @@ class DashboardScreen extends StatelessWidget {
                               }
                             }),
                           ),
+                          SizedBox(
+                            height: 25,
+                          ),
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 30, right: 30, top: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 35),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -147,7 +155,7 @@ class DashboardScreen extends StatelessWidget {
                                   },
                                   child: RoundButton(
                                     iconn: Icons.refresh,
-                                    title: " Scan\n QR code",
+                                    title: " Load\nMoney",
                                   ),
                                 ),
                                 RoundButton(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paysense/utils/Colors.dart';
 
 class RoundedTextField extends StatelessWidget {
   final TextInputType? keyboardType;
@@ -12,18 +13,20 @@ class RoundedTextField extends StatelessWidget {
   const RoundedTextField({
     Key? key,
     this.keyboardType,
-    this.obscureText = false, // default to false
+    this.obscureText = false,
     this.controller,
     this.hintText,
     this.validator,
     this.suffixIcon,
-    required FocusNode
-        focusNode, // changed to suffixIcon to match InputDecoration parameter
+    required FocusNode focusNode,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return TextFormField(
+      style: TextStyle(
+          color: isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor),
       obscureText: obscureText!,
       validator: validator,
       keyboardType: keyboardType,

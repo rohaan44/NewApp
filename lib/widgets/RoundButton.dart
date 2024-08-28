@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/utils/colors.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 // ignore: must_be_immutable
 class RoundButton extends StatelessWidget {
@@ -10,6 +9,8 @@ class RoundButton extends StatelessWidget {
   RoundButton({super.key, required this.iconn, required this.title});
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     return Column(
       children: [
         Container(
@@ -31,8 +32,8 @@ class RoundButton extends StatelessWidget {
           child: Text(
             title,
             style: GoogleFonts.poppins(
-              fontSize: 16.sp,
-              height: 1.1,
+              color: isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
+              fontSize: 13,
               fontWeight: FontWeight.w400,
             ),
           ),

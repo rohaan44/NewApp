@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:paysense/controllers/UserController.dart';
 import 'package:paysense/views/DashboardScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,7 +39,7 @@ class Logincontroller extends GetxController {
     });
   }
 
-  Future<void> login() async {
+    Future<void> login() async {
     final String email = emailController.text;
     final String pin = pinController.text;
     final String adjustedPin = pin.padRight(6, '0');
@@ -52,17 +53,16 @@ class Logincontroller extends GetxController {
 
     try {
       // Sign in with Firebase
-      UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: adjustedPin,
       );
-      String signedInEmail = userCredential.user?.email ?? '';
 
-      await retrieveUserDataLocally(signedInEmail);
+      // Initialize the UserController and fetch user data
+      Get.put(UserController()).fetchUserData();
 
       Get.snackbar("Congratulations", "User Logged In Successfully");
-      Get.to(() => DashboardScreen());
+      Get.to(() => const DashboardScreen());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.snackbar("Error", "No user found for that email.");
@@ -72,32 +72,30 @@ class Logincontroller extends GetxController {
         Get.snackbar("Error", e.message ?? "An error occurred.");
       }
     } catch (error) {
-      Get.snackbar(
-          "Error", "An unexpected error occurred: ${error.toString()}");
+      Get.snackbar("Error", "An unexpected error occurred: ${error.toString()}");
     } finally {
       isLoading.value = false;
     }
   }
+  // Future<void> retrieveUserDataLocally(String signedInEmail) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String email = prefs.getString('email') ?? '';
+  //   String username = prefs.getString('username') ?? '';
+  //   String phoneNumber = prefs.getString('phoneNumber') ?? '';
+  //   String pin = prefs.getString('pin') ?? '';
+  //   String formattedNumber = prefs.getString('amount') ?? '';
 
-  Future<void> retrieveUserDataLocally(String signedInEmail) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String email = prefs.getString('email') ?? '';
-    String username = prefs.getString('username') ?? '';
-    String phoneNumber = prefs.getString('phoneNumber') ?? '';
-    String pin = prefs.getString('pin') ?? '';
-    String formattedNumber = prefs.getString('amount') ?? '';
-
-    if (email == signedInEmail) {
-      userData.value = {
-        'email': email,
-        'username': username,
-        'phoneNumber': phoneNumber,
-        'pin': pin,
-        'amount': formattedNumber,
-      };
-      log('Locally retrieved user data: $userData');
-    } else {
-      log('No matching local user data found for the signed-in email.');
-    }
-  }
+  //   if (email == signedInEmail) {
+  //     userData.value = {
+  //       'email': email,
+  //       'username': username,
+  //       'phoneNumber': phoneNumber,
+  //       'pin': pin,
+  //       'amount': formattedNumber,
+  //     };
+  //     log('Locally retrieved user data: $userData');
+  //   } else {
+  //     log('No matching local user data found for the signed-in email.');
+  //   }
+  // }
 }

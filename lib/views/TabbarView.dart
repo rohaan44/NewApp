@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
+import 'package:paysense/widgets/GrowCircle.dart';
 
 class TabBarVieww extends StatefulWidget {
   const TabBarVieww({super.key});
@@ -92,7 +94,7 @@ class _TabBarViewwState extends State<TabBarVieww>
                           title: "Bill Payments",
                           subtitle:
                               "Pay your all utility bills using Pay Sense.",
-                          image: DummyImg.bill,
+                          // image: DummyImg.bill,
                         ),
                         _buildListTile(
                           icon: Icons.splitscreen,
@@ -107,10 +109,10 @@ class _TabBarViewwState extends State<TabBarVieww>
                       ],
                     ),
                   ),
-                  const Center(
+                  Center(
                     child: Text(
                       "Transactions",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: ColorUtil.whitecolor),
                     ),
                   ),
                 ],
@@ -129,25 +131,38 @@ class _TabBarViewwState extends State<TabBarVieww>
     String? image,
   }) {
     return ListTile(
-      leading: CircleAvatar(
-        radius: 40,
-        backgroundColor: const Color(0xff3894FF),
-        child: image != null
-            ? Image.asset(
-                image,
-                color: Colors.white,
-              )
-            : Icon(
-                icon,
-                color: Colors.white,
-              ),
+      leading: Container(
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(151, 33, 149, 243),
+              spreadRadius: 5,
+              blurRadius: 10,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+          ],
+        ),
+        child: CircleAvatar(
+          radius: 40,
+          backgroundColor: Color(0xff3894FF),
+          child: image != null
+              ? SvgPicture.asset(
+                  image,
+                  color: ColorUtil.whitecolor,
+                )
+              : Icon(
+                  icon,
+                  color: ColorUtil.whitecolor,
+                ),
+        ),
       ),
       title: Text(
         title,
         style: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          color: Colors.white,
+          color: ColorUtil.whitecolor,
         ),
       ),
       subtitle: Text(
@@ -155,7 +170,7 @@ class _TabBarViewwState extends State<TabBarVieww>
         style: GoogleFonts.poppins(
           fontSize: 13,
           fontWeight: FontWeight.w400,
-          color: Colors.white,
+          color: ColorUtil.whitecolor,
         ),
       ),
     );

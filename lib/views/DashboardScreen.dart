@@ -19,7 +19,10 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final UserController userController = Get.put(UserController());
-    Future<void> _refreshScreen() async {}
+    Future<void> _refreshScreen() async {
+      userController.fetchUserData();
+    }
+
     return GetBuilder<UserController>(builder: (controller) {
       return SafeArea(
         child: Scaffold(
@@ -45,7 +48,7 @@ class DashboardScreen extends StatelessWidget {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    Get.toNamed('/DrawerView');
+                                    Get.to(());
                                   },
                                   child: SvgPicture.asset(
                                     isDarkMode
@@ -84,13 +87,29 @@ class DashboardScreen extends StatelessWidget {
                             child: Obx(() {
                               if (userController.isLoading.value) {
                                 return Center(
-                                    child: CircularProgressIndicator());
+                                    child: CircularProgressIndicator(
+                                  color: ColorUtil.bgblue,
+                                  backgroundColor:
+                                      const Color.fromARGB(155, 200, 223, 235),
+                                ));
                               } else if (userController
                                   .errorMessage.isNotEmpty) {
                                 log('Error: ${userController.errorMessage.value}');
-                                return Center(
-                                  child:
-                                      Text(userController.errorMessage.value),
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
+                                  child: Center(
+                                    child: Text(
+                                      textAlign: TextAlign.center,
+                                      userController.errorMessage.value,
+                                      style: GoogleFonts.poppins(
+                                          textStyle: TextStyle(
+                                              fontSize: 15,
+                                              color: isDarkMode
+                                                  ? ColorUtil.blackcolor
+                                                  : ColorUtil.whitecolor)),
+                                    ),
+                                  ),
                                 );
                               } else {
                                 var userData = controller.userData.value;
@@ -125,7 +144,7 @@ class DashboardScreen extends StatelessWidget {
                               }
                             }),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           Padding(
@@ -135,7 +154,7 @@ class DashboardScreen extends StatelessWidget {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    Get.to(() => SendAmountScreen());
+                                    Get.to(() => const SendAmountScreen());
                                   },
                                   child: RoundButton(
                                     iconn: Icons.call_made_outlined,
@@ -168,10 +187,10 @@ class DashboardScreen extends StatelessWidget {
                             ),
                           ),
                           const Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: const TabBarVieww(),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: TabBarVieww(),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 50,
                           )
                         ],

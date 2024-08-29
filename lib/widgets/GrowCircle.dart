@@ -5,8 +5,10 @@ import 'package:paysense/utils/colors.dart';
 class GlowCircleAvatar extends StatelessWidget {
   final String imagePath;
   final bool isSvg;
+  final Color bg;
 
-  GlowCircleAvatar({required this.imagePath, this.isSvg = false});
+  GlowCircleAvatar(
+      {required this.imagePath, this.isSvg = false, required this.bg});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class GlowCircleAvatar extends StatelessWidget {
       ),
       child: CircleAvatar(
         radius: 50, // Adjust the radius as needed
-        backgroundColor: Colors.white,
+        backgroundColor: bg,
         child: Padding(
             padding: const EdgeInsets.all(10.0), // Optional padding
             child: SvgPicture.asset(

@@ -134,7 +134,7 @@ class SendAmountScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),
                   child: CustomKeyboard(
-                    height: 2,
+                    height: 1.5,
                     onKeyPressed: (value) {
                       if (value == '⌫') {
                         if (bePayAmntView.textEdit.text.isNotEmpty) {

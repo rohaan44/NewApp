@@ -105,8 +105,10 @@ class ChooseBankScreen extends StatelessWidget {
                     },
                     child: ListTile(
                       leading: GlowCircleAvatar(
-                          imagePath: homeController.foundPlayers.value[index]
-                              ['bankimg']),
+                        imagePath: homeController.foundPlayers.value[index]
+                            ['bankimg'],
+                        bg: ColorUtil.whitecolor,
+                      ),
                       // leading: ClipOval(
 
                       //   child: SvgPicture.asset(
@@ -118,7 +120,7 @@ class ChooseBankScreen extends StatelessWidget {
                       title: Text(
                         homeController.foundPlayers.value[index]['bankname'],
                         style: GoogleFonts.poppins(
-                          color:isDarkMode 
+                          color: isDarkMode
                               ? ColorUtil.blackcolor
                               : ColorUtil.whitecolor,
                           fontSize: 16,

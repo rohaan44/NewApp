@@ -36,10 +36,10 @@ class TransScriptScreen extends StatelessWidget {
                 right: -100,
                 child: SizedBox(height: 150, child: Uitemplate())),
             Padding(
-              padding: const EdgeInsets.only(left: 88.0, top: 47),
+              padding: const EdgeInsets.only(left: 105.0, top: 47),
               child: Stack(children: [
                 SvgPicture.asset(
-                  DummyImg.logo,
+                  DummyImg.splashLogo,
                   width: 78,
                 ),
               ]),
@@ -48,7 +48,7 @@ class TransScriptScreen extends StatelessWidget {
               children: [
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 80, left: 30),
+                    padding: const EdgeInsets.only(top: 80, left: 55),
                     child: Text(
                       "AYSENSE",
                       style: GoogleFonts.poppins(
@@ -63,17 +63,17 @@ class TransScriptScreen extends StatelessWidget {
                   child: Stack(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 50),
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
                         child: Card(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15)),
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.50,
-                            width: MediaQuery.of(context).size.width * 1,
+                            width: MediaQuery.of(context).size.width * 1.5,
                             decoration: BoxDecoration(
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
-                                      color: Color(0xff55a3fe),
+                                      color: ColorUtil.bgblue,
                                       // spreadRadius: 0.5,
                                       blurRadius: 7)
                                 ],
@@ -94,11 +94,18 @@ class TransScriptScreen extends StatelessWidget {
                                             Text("Sender Name",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.bgblue,
-                                                    fontSize: 15,
+                                                    fontSize: 17,
                                                     height: 1,
                                                     fontWeight:
-                                                        FontWeight.w500)),
-                                            Text(userData['fullName']),
+                                                        FontWeight.w600)),
+                                            Text(
+                                              userData['fullName'],
+                                              style: GoogleFonts.poppins(
+                                                  color: ColorUtil.blackcolor,
+                                                  fontSize: 15,
+                                                  height: 1,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
                                           ],
                                         ),
                                         const Divider(
@@ -112,12 +119,19 @@ class TransScriptScreen extends StatelessWidget {
                                             Text("Account ID",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.bgblue,
+                                                    fontSize: 17,
+                                                    height: 1,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            Text(
+                                                controller.maskPhoneNumber(
+                                                    userData['phoneNumber']),
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorUtil.blackcolor,
                                                     fontSize: 15,
                                                     height: 1,
                                                     fontWeight:
                                                         FontWeight.w500)),
-                                            Text(controller.maskPhoneNumber(
-                                                userData['phoneNumber'])),
                                           ],
                                         ),
                                         const Divider(
@@ -131,12 +145,18 @@ class TransScriptScreen extends StatelessWidget {
                                             Text("Reciever Title",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.bgblue,
-                                                    fontSize: 15,
+                                                    fontSize: 17,
                                                     height: 1,
                                                     fontWeight:
-                                                        FontWeight.w500)),
-                                            Text(RecieverData
-                                                .userData['fullName']),
+                                                        FontWeight.w600)),
+                                            Text(
+                                              RecieverData.userData['fullName'],
+                                              style: GoogleFonts.poppins(
+                                                  color: ColorUtil.blackcolor,
+                                                  fontSize: 15,
+                                                  height: 1,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
                                           ],
                                         ),
                                         const Divider(
@@ -150,13 +170,20 @@ class TransScriptScreen extends StatelessWidget {
                                             Text("To Account ID",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.bgblue,
+                                                    fontSize: 17,
+                                                    height: 1,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            Text(
+                                                controller.maskPhoneNumber(
+                                                    RecieverData.userData[
+                                                        'phoneNumber']),
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorUtil.blackcolor,
                                                     fontSize: 15,
                                                     height: 1,
                                                     fontWeight:
                                                         FontWeight.w500)),
-                                            Text(controller.maskPhoneNumber(
-                                                RecieverData
-                                                    .userData['phoneNumber'])),
                                           ],
                                         ),
                                         const Divider(
@@ -170,12 +197,20 @@ class TransScriptScreen extends StatelessWidget {
                                             Text("Amount",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.bgblue,
+                                                    fontSize: 17,
+                                                    height: 1,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            Text(
+                                                "Rs: " +
+                                                    recieverAmount
+                                                        .textEdit.text,
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorUtil.blackcolor,
                                                     fontSize: 15,
                                                     height: 1,
                                                     fontWeight:
                                                         FontWeight.w500)),
-                                            Text("Rs: " +
-                                                recieverAmount.textEdit.text),
                                           ],
                                         ),
                                         const Divider(
@@ -189,11 +224,17 @@ class TransScriptScreen extends StatelessWidget {
                                             Text("Date & Time",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.bgblue,
+                                                    fontSize: 17,
+                                                    height: 1,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            Text(Datetime,
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorUtil.blackcolor,
                                                     fontSize: 15,
                                                     height: 1,
                                                     fontWeight:
                                                         FontWeight.w500)),
-                                            Text(Datetime),
                                           ],
                                         ),
                                         const Divider(
@@ -207,11 +248,17 @@ class TransScriptScreen extends StatelessWidget {
                                             Text("Channel",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.bgblue,
+                                                    fontSize: 17,
+                                                    height: 1,
+                                                    fontWeight:
+                                                        FontWeight.w600)),
+                                            Text("Paysense",
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorUtil.blackcolor,
                                                     fontSize: 15,
                                                     height: 1,
                                                     fontWeight:
                                                         FontWeight.w500)),
-                                            const Text("Paysense"),
                                           ],
                                         ),
                                       ]),

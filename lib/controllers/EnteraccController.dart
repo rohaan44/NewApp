@@ -30,7 +30,7 @@ class EnterAccController extends GetxController {
   }
 
   Color getBackgroundColor(BuildContext context) {
-    return isDarkMode(context) ? ColorUtil.whitecolor : Color(0xff212121);
+    return isDarkMode(context) ? ColorUtil.whitecolor : ColorUtil.bgblue;
   }
 
   void openModal(BuildContext context) {
@@ -45,7 +45,7 @@ class EnterAccController extends GetxController {
               topLeft: Radius.circular(12), topRight: Radius.circular(20))),
       builder: (BuildContext context) {
         return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.35,
+          height: MediaQuery.of(context).size.height * 0.4,
           child: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: CustomKeyboard(

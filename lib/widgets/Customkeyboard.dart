@@ -38,9 +38,9 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
                     color: isDarkMode
                         ? ColorUtil.blackcolor
                         : ColorUtil.whitecolor,
-                    fontSize: 25,
+                    fontSize: 35,
                     height: widget.height,
-                    fontWeight: FontWeight.w500)),
+                    fontWeight: FontWeight.w600)),
           ),
         );
       }).toList(),

@@ -7,7 +7,6 @@ import 'package:paysense/controllers/EnteraccController.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/controllers/UserController.dart';
 
-
 class TransactionController extends GetxController {
   final recieverData = Get.find<EnterAccController>().userData;
   final senderData = Get.find<UserController>().userData;
@@ -49,7 +48,8 @@ class TransactionController extends GetxController {
       }
       return null;
     }
-int? receiverAmount = parseAmount(recieverData['amount']);
+
+    int? receiverAmount = parseAmount(recieverData['amount']);
     int? senderAmount = parseAmount(senderData['amount']);
     int? sendingAmount = int.tryParse(sendingAmountController.text);
     print("Parsed Receiver Amount: $receiverAmount");
@@ -72,10 +72,12 @@ int? receiverAmount = parseAmount(recieverData['amount']);
     log("Sender Phone Number: ${senderData['phoneNumber']}");
 
     try {
-      QuerySnapshot receiverSnapshot = await firestore.collection('users')
+      QuerySnapshot receiverSnapshot = await firestore
+          .collection('users')
           .where('phoneNumber', isEqualTo: recieverData['phoneNumber'])
           .get();
-      QuerySnapshot senderSnapshot = await firestore.collection('users')
+      QuerySnapshot senderSnapshot = await firestore
+          .collection('users')
           .where('phoneNumber', isEqualTo: senderData['phoneNumber'])
           .get();
       if (receiverSnapshot.docs.isEmpty) {
@@ -92,12 +94,15 @@ int? receiverAmount = parseAmount(recieverData['amount']);
         int updatedSenderAmount = senderAmount - sendingAmount;
         int updatedReceiverAmount = receiverAmount + sendingAmount;
         var formatter = NumberFormat('#,##0', 'en_US');
-        String formattedUpdatedSenderAmount = formatter.format(updatedSenderAmount);
-        String formattedUpdatedReceiverAmount = formatter.format(updatedReceiverAmount);
+        String formattedUpdatedSenderAmount =
+            formatter.format(updatedSenderAmount);
+        String formattedUpdatedReceiverAmount =
+            formatter.format(updatedReceiverAmount);
         try {
           WriteBatch batch = firestore.batch();
           batch.update(senderRef, {'amount': formattedUpdatedSenderAmount});
-          batch.update(senderRef, {'totalTransaction': FieldValue.increment(1)});
+          batch
+              .update(senderRef, {'totalTransaction': FieldValue.increment(1)});
           batch.update(receiverRef, {'amount': formattedUpdatedReceiverAmount});
           await batch.commit();
           senderData['amount'] = formattedUpdatedSenderAmount;
@@ -105,9 +110,13 @@ int? receiverAmount = parseAmount(recieverData['amount']);
 
           Get.snackbar('Success', 'Transaction completed successfully');
           status.value = true;
-         transactionData(senderData['phoneNumber'], recieverData['phoneNumber'], senderData['fullname'], recieverData['fullname'], sendingAmount, status.value);
-         
-
+          transactionData(
+              senderData['phoneNumber'],
+              recieverData['phoneNumber'],
+              senderData['fullname'],
+              recieverData['fullname'],
+              sendingAmount as String,
+              status.value);
         } catch (e) {
           Get.snackbar('Error', 'Transaction failed: ${e.toString()}');
         }
@@ -119,29 +128,29 @@ int? receiverAmount = parseAmount(recieverData['amount']);
     }
   }
 
-Future<void> transactionData(
-    String senderId, 
-    String receiverId, 
-    String senderName, 
-    String receiverName, 
-    int sendingAmount, 
-    bool status
-) async {
-  // Generate a unique document ID using current timestamp
-  String transactionId = 'Paysense${DateTime.now().millisecondsSinceEpoch}';
-  
-  await FirebaseFirestore.instance.collection('transactions').doc(transactionId).set({
-    'SenderId': senderId,
-    'ReceiverId': receiverId,
-    'SenderName': senderName,
-    'ReceiverName': receiverName,
-    'SendingAmount': sendingAmount,
-    'Status': status,
-    'Timestamp': FieldValue.serverTimestamp(), // Storing the server timestamp
-  }).then((value) {
-    log('Data saved in Firestore successfully');
-  });
-}
+  Future<void> transactionData(
+      String senderId,
+      String receiverId,
+      String senderName,
+      String receiverName,
+      String sendingAmount,
+      bool status) async {
+    // Generate a unique document ID using current timestamp
+    String transactionId = 'Paysense${DateTime.now().millisecondsSinceEpoch}';
 
-
+    await FirebaseFirestore.instance
+        .collection('transactions')
+        .doc(transactionId)
+        .set({
+      'SenderId': senderId,
+      'ReceiverId': receiverId,
+      'SenderName': senderName,
+      'ReceiverName': receiverName,
+      'SendingAmount': sendingAmount,
+      'Status': status,
+      'Timestamp': FieldValue.serverTimestamp(), // Storing the server timestamp
+    }).then((value) {
+      log('Data saved in Firestore successfully');
+    });
+  }
 }

@@ -118,7 +118,6 @@ class EnterAccNo extends StatelessWidget {
                 child: SizedBox(
                   height: 50,
                   child: TextField(
-                    keyboardType: TextInputType.number,
                     style: TextStyle(
                       color: isDarkMode
                           ? ColorUtil.blackcolor

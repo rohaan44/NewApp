@@ -23,9 +23,13 @@ class EnterAccNo extends StatelessWidget {
         body: Stack(
           children: [
             const Uitemplate(),
+            const Positioned(
+                bottom: 0,
+                right: -100,
+                child: SizedBox(height: 150, child: Uitemplate())),
             Column(children: [
               Padding(
-                padding: const EdgeInsets.only(left: 35, top: 45.0, bottom: 20),
+                padding: const EdgeInsets.only(left: 20, top: 45.0, bottom: 20),
                 child: Row(
                   children: [
                     GestureDetector(
@@ -93,7 +97,7 @@ class EnterAccNo extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 35, top: 5),
+                padding: const EdgeInsets.only(left: 30, top: 5),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -114,6 +118,7 @@ class EnterAccNo extends StatelessWidget {
                 child: SizedBox(
                   height: 50,
                   child: TextField(
+                    keyboardType: TextInputType.number,
                     style: TextStyle(
                       color: isDarkMode
                           ? ColorUtil.blackcolor
@@ -151,9 +156,7 @@ class EnterAccNo extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                height: Get.height * 0.05,
-              ),
+              Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Obx(() {
@@ -166,6 +169,9 @@ class EnterAccNo extends StatelessWidget {
                   );
                 }),
               ),
+              SizedBox(
+                height: Get.height * 0.09,
+              )
             ]),
           ],
         ),

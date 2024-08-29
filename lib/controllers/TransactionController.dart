@@ -106,6 +106,7 @@ int? receiverAmount = parseAmount(recieverData['amount']);
           Get.snackbar('Success', 'Transaction completed successfully');
           status.value = true;
          transactionData(senderData['phoneNumber'], recieverData['phoneNumber'], senderData['fullname'], recieverData['fullname'], sendingAmount, status.value);
+         
 
         } catch (e) {
           Get.snackbar('Error', 'Transaction failed: ${e.toString()}');

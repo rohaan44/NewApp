@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paysense/controllers/UserController.dart';
 import 'package:paysense/controllers/transactionController.dart';
+import 'package:paysense/views/TranscriptScreen.dart';
 
 class TransConfirmController extends GetxController {
   TextEditingController textControl = TextEditingController();
@@ -27,7 +28,7 @@ class TransConfirmController extends GetxController {
     if (textControl.text == userData['pin']) {
       log("Pin is Successful");
       transactionController.transaction();
-      Get.to(());
+      Get.to(() => TransScriptScreen());
     } else {
       Get.snackbar("Error", "Pin is incorrect");
     }

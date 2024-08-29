@@ -31,7 +31,7 @@ class TransConfirmScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding:
-                      const EdgeInsets.only(left: 35, top: 45.0, bottom: 20),
+                      const EdgeInsets.only(left: 20, top: 45.0, bottom: 20),
                   child: Row(
                     children: [
                       GestureDetector(
@@ -53,6 +53,9 @@ class TransConfirmScreen extends StatelessWidget {
                 Text(
                   "Enter your PIN",
                   style: GoogleFonts.poppins(
+                    color: isDarkMode
+                        ? ColorUtil.blackcolor
+                        : ColorUtil.whitecolor,
                     fontSize: 22,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 1.12,
@@ -72,12 +75,12 @@ class TransConfirmScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5),
                         fieldHeight: 40,
                         fieldWidth: 40,
-                        activeFillColor:
-                            isDarkMode ? Colors.black87 : Colors.white,
-                        inactiveFillColor:
-                            ColorUtil.whitecolor.withOpacity(0.05),
+                        activeFillColor: isDarkMode
+                            ? ColorUtil.blackcolor
+                            : ColorUtil.whitecolor,
+                        inactiveFillColor: Colors.transparent,
                         inactiveColor: ColorUtil.bgblue,
-                        inactiveBorderWidth: 10),
+                        inactiveBorderWidth: 5),
 
                     animationDuration: const Duration(milliseconds: 300),
                     enableActiveFill: true,
@@ -109,6 +112,9 @@ class TransConfirmScreen extends StatelessWidget {
                   child: Text(
                     "Forget PIN?",
                     style: GoogleFonts.poppins(
+                      color: isDarkMode
+                          ? ColorUtil.blackcolor
+                          : ColorUtil.whitecolor,
                       fontSize: 17,
                       fontWeight: FontWeight.w500,
                       letterSpacing: 1.12,

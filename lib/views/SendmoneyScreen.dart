@@ -18,12 +18,12 @@ class SendMoneyScreen extends StatelessWidget {
         body: Stack(children: [
           const Uitemplate(),
           const Positioned(
-                      bottom: 0,
-                      right: -100,
-                      child: SizedBox(height: 150, child: Uitemplate())),
+              bottom: 0,
+              right: -100,
+              child: SizedBox(height: 150, child: Uitemplate())),
           Column(children: [
             Padding(
-              padding: const EdgeInsets.only(left: 35, top: 45.0, bottom: 20),
+              padding: const EdgeInsets.only(left: 20, top: 45.0, bottom: 20),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: GestureDetector(
@@ -59,11 +59,11 @@ class SendMoneyScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(()=>ChooseBankScreen());
+                  Get.to(() => ChooseBankScreen());
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,
-                  height: MediaQuery.of(context).size.height * 0.145,
+                  height: MediaQuery.of(context).size.height * 0.165,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: ColorUtil.bgcolor,

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
+import 'package:paysense/views/DashboardScreen.dart';
 import 'package:paysense/views/TransconfirmScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
 
@@ -27,10 +28,10 @@ class AfterPaymentScreen extends StatelessWidget {
                 bottom: 0,
                 right: -100,
                 child: SizedBox(height: 150, child: Uitemplate())),
-            Column(children: [
+            ListView(children: [
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 35, top: 45.0, bottom: 20, right: 35),
+                    left: 20, top: 45.0, bottom: 20, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -60,7 +61,7 @@ class AfterPaymentScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed('/DashView');
+                        Get.to(() => DashboardScreen());
                       },
                       child: SvgPicture.asset(
                         DummyImg.closecircle,
@@ -74,9 +75,12 @@ class AfterPaymentScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 35, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   child: Container(
                     width: MediaQuery.of(context).size.width * 1,
                     height: MediaQuery.of(context).size.height * 0.13,
@@ -120,10 +124,10 @@ class AfterPaymentScreen extends StatelessWidget {
                   )),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 35, vertical: 25),
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,
-                  height: MediaQuery.of(context).size.height * 0.37,
+                  height: MediaQuery.of(context).size.height * 0.35,
                   decoration: BoxDecoration(
                     boxShadow: const [
                       BoxShadow(
@@ -140,7 +144,7 @@ class AfterPaymentScreen extends StatelessWidget {
                         color: isDarkMode ? Colors.grey : Colors.grey,
                         tiles: [
                           Container(
-                            height: 60,
+                            height: 65,
                             padding: EdgeInsets.symmetric(horizontal: 15),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -284,12 +288,15 @@ class AfterPaymentScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 100,
               )
             ]),
           ],
         ),
       ),
     );
-    ;
+    
   }
 }

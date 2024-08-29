@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paysense/controllers/LoginController.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
+import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/views/AfterpaymentScreen.dart';
 import 'package:paysense/widgets/Customkeyboard.dart';
 
@@ -24,32 +25,43 @@ class EnterAccController extends GetxController {
     showError.value = false; // Reset error state
   }
 
+  bool isDarkMode(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark;
+  }
+
+  Color getBackgroundColor(BuildContext context) {
+    return isDarkMode(context) ? ColorUtil.whitecolor : Color(0xff212121);
+  }
+
   void openModal(BuildContext context) {
     showModalBottomSheet(
       isScrollControlled: true,
-      barrierColor: Colors.white.withOpacity(0.05),
-      backgroundColor: Colors.transparent,
+      barrierColor: Colors.transparent,
+      backgroundColor: getBackgroundColor(context),
       context: context,
       shape: const OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+              topLeft: Radius.circular(12), topRight: Radius.circular(20))),
       builder: (BuildContext context) {
         return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.38,
-          child: CustomKeyboard(
-            height: 1.5,
-            onKeyPressed: (value) {
-              if (value == '⌫') {
-                if (textacc.text.isNotEmpty) {
-                  textacc.text =
-                      textacc.text.substring(0, textacc.text.length - 1);
+          height: MediaQuery.of(context).size.height * 0.35,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: CustomKeyboard(
+              height: 1.5,
+              onKeyPressed: (value) {
+                if (value == '⌫') {
+                  if (textacc.text.isNotEmpty) {
+                    textacc.text =
+                        textacc.text.substring(0, textacc.text.length - 1);
+                  }
+                } else {
+                  textacc.text += value;
                 }
-              } else {
-                textacc.text += value;
-              }
-              onTextChanged(textacc.text);
-            },
+                onTextChanged(textacc.text);
+              },
+            ),
           ),
         );
       },

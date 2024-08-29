@@ -26,7 +26,7 @@ class ChooseBankScreen extends StatelessWidget {
             child: SizedBox(height: 150, child: Uitemplate())),
         Column(children: [
           Padding(
-            padding: const EdgeInsets.only(left: 35, top: 45.0, bottom: 20),
+            padding: const EdgeInsets.only(left: 20, top: 45.0, bottom: 20),
             child: Row(
               children: [
                 GestureDetector(
@@ -90,7 +90,7 @@ class ChooseBankScreen extends StatelessWidget {
                 itemCount: homeController.foundPlayers.value.length,
                 itemBuilder: (context, index) => Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 7),
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -118,7 +118,7 @@ class ChooseBankScreen extends StatelessWidget {
                       title: Text(
                         homeController.foundPlayers.value[index]['bankname'],
                         style: GoogleFonts.poppins(
-                          color: isDarkMode
+                          color:isDarkMode 
                               ? ColorUtil.blackcolor
                               : ColorUtil.whitecolor,
                           fontSize: 16,

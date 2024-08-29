@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
+import 'package:paysense/utils/Colors.dart';
 
 class FingerKeypad extends StatefulWidget {
   final Function(String) onKeyPressed;
@@ -55,8 +56,8 @@ class _FingerKeypadState extends State<FingerKeypad> {
               },
               child: Icon(
                 Icons.fingerprint,
-                size: 25,
-                color: isDarkMode ? Colors.white : Colors.black87,
+                size: 50,
+                color: isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
               ),
             ),
           );
@@ -66,8 +67,10 @@ class _FingerKeypadState extends State<FingerKeypad> {
               onPressed: () => widget.onKeyPressed(key),
               child: Text(key,
                   style: GoogleFonts.poppins(
-                      color: isDarkMode ? Colors.white : Colors.black87,
-                      fontSize: 25,
+                      color: isDarkMode
+                          ? ColorUtil.blackcolor
+                          : ColorUtil.whitecolor,
+                      fontSize: 30,
                       height: 2.1,
                       fontWeight: FontWeight.w500)),
             ),

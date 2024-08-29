@@ -30,102 +30,106 @@ class SendAmountScreen extends StatelessWidget {
                 child: SizedBox(height: 150, child: Uitemplate())),
             Column(
               children: [
+                SizedBox(
+                  height: 50,
+                ),
                 Padding(
-                  padding:
-                      const EdgeInsets.only(left: 35, top: 38.0, bottom: 30),
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: SvgPicture.asset(
+                        DummyImg.chevleft,
+                        width: 32,
+                        height: 32,
+                        color: isDarkMode
+                            ? ColorUtil.blackcolor
+                            : ColorUtil.whitecolor,
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Obx(
+                    () {
+                      if (userController.isLoading.value) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (userController.errorMessage.isNotEmpty) {
+                        return Center(
+                            child: Text(userController.errorMessage.value));
+                      } else if (userController.userData.isEmpty) {
+                        return Center(child: Text('No data available'));
+                      } else {
+                        var userData = userController.userData.value;
+                        return Text(
+                          "Current Balance \n \t\t\t\t\t\t\tRs " +
+                              userData['amount'],
+                          style: GoogleFonts.poppins(
+                            color: isDarkMode
+                                ? ColorUtil.blackcolor
+                                : ColorUtil.whitecolor,
+                            height: 1.3,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 50),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: SvgPicture.asset(
-                          DummyImg.chevleft,
-                          width: 32,
-                          height: 32,
+                      Text(
+                        "Rs.  ",
+                        style: GoogleFonts.poppins(
                           color: isDarkMode
                               ? ColorUtil.blackcolor
                               : ColorUtil.whitecolor,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 55),
+                      SizedBox(
+                        width: 150,
                         child: Obx(
-                          () {
-                            if (userController.isLoading.value) {
-                              return const Center(
-                                  child: CircularProgressIndicator());
-                            } else if (userController.errorMessage.isNotEmpty) {
-                              return Center(
-                                  child:
-                                      Text(userController.errorMessage.value));
-                            } else if (userController.userData.isEmpty) {
-                              return Center(child: Text('No data available'));
-                            } else {
-                              var userData = userController.userData.value;
-                              return Text(
-                                "Current Balance \n \t\t\t\t\t\t\tRs " +
-                                    userData['amount'],
-                                style: GoogleFonts.poppins(
-                                  color: isDarkMode
-                                      ? ColorUtil.blackcolor
-                                      : ColorUtil.whitecolor,
-                                  height: 1.3,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              );
-                            }
-                          },
+                          () => TextField(
+                            style: TextStyle(
+                                fontSize: bePayAmntView.fontSize.value,
+                                color: isDarkMode
+                                    ? ColorUtil.blackcolor
+                                    : ColorUtil.whitecolor),
+                            onChanged: (newText) {
+                              bePayAmntView.onTextChanged(newText);
+                            },
+                            controller: bePayAmntView.textEdit,
+                            keyboardType: TextInputType.none,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: '0',
+                              hintStyle: TextStyle(
+                                fontSize: 40,
+                                color: isDarkMode
+                                    ? ColorUtil.blackcolor
+                                    : ColorUtil.whitecolor,
+                              ),
+                              // errorText: bePayAmntView.showError.value
+                              //     ? 'Value must be <= 200000'
+                              //     : null,
+                            ),
+                          ),
                         ),
                       )
                     ],
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Rs.  ",
-                      style: GoogleFonts.poppins(
-                        color: isDarkMode
-                            ? ColorUtil.blackcolor
-                            : ColorUtil.whitecolor,
-                        fontSize: 40,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 150,
-                      child: Obx(
-                        () => TextField(
-                          style: TextStyle(
-                              fontSize: bePayAmntView.fontSize.value,
-                              color: isDarkMode
-                                  ? ColorUtil.blackcolor
-                                  : ColorUtil.whitecolor),
-                          onChanged: (newText) {
-                            bePayAmntView.onTextChanged(newText);
-                          },
-                          controller: bePayAmntView.textEdit,
-                          keyboardType: TextInputType.none,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: '0',
-                            hintStyle: TextStyle(
-                              fontSize: 40,
-                              color: isDarkMode
-                                  ? ColorUtil.blackcolor
-                                  : ColorUtil.whitecolor,
-                            ),
-                            // errorText: bePayAmntView.showError.value
-                            //     ? 'Value must be <= 200000'
-                            //     : null,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20.0),

@@ -17,8 +17,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final Logincontroller loginController = Get.put(Logincontroller());
-    return SafeArea(
-        child: GestureDetector(
+    return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
       },
@@ -185,6 +184,6 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }

@@ -111,11 +111,11 @@ class TransactionController extends GetxController {
           Get.snackbar('Success', 'Transaction completed successfully');
           status.value = true;
           transactionData(
-              senderData['phoneNumber'],
-              recieverData['phoneNumber'],
-              senderData['fullname'],
-              recieverData['fullname'],
-              sendingAmount as String,
+              senderData['phoneNumber'] ?? '',
+              recieverData['phoneNumber'] ?? '',
+              senderData['fullname'] ?? '',
+              recieverData['fullname'] ?? '',
+              sendingAmount?.toString() ?? '0',
               status.value);
         } catch (e) {
           Get.snackbar('Error', 'Transaction failed: ${e.toString()}');

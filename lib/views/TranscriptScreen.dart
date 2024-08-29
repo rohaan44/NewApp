@@ -24,8 +24,7 @@ class TransScriptScreen extends StatelessWidget {
     var userData = Get.find<UserController>().userData;
     var RecieverData = Get.find<EnterAccController>();
     String Datetime = DateFormat('hh:mma dd/MM/yyyy').format(DateTime.now());
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       body: RepaintBoundary(
         key: controller.globalKey,
         child: Stack(
@@ -361,6 +360,6 @@ class TransScriptScreen extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    ));
+    );
   }
 }

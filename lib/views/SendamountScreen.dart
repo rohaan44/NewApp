@@ -19,8 +19,7 @@ class SendAmountScreen extends StatelessWidget {
     final SendingAmountController bePayAmntView =
         Get.put(SendingAmountController());
     final UserController userController = Get.find<UserController>();
-    return SafeArea(
-      child: Scaffold(
+    return  Scaffold(
         body: Stack(
           children: [
             const Uitemplate(),
@@ -219,7 +218,6 @@ class SendAmountScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

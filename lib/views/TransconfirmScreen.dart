@@ -18,8 +18,7 @@ class TransConfirmScreen extends StatelessWidget {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final TransConfirmController transController =
         Get.put(TransConfirmController());
-    return SafeArea(
-      child: Scaffold(
+    return  Scaffold(
         body: Stack(
           children: [
             const Uitemplate(),
@@ -149,7 +148,6 @@ class TransConfirmScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

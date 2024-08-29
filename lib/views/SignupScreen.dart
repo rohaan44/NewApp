@@ -16,8 +16,7 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final SignupController controller = Get.put(SignupController());
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return SafeArea(
-        child: GestureDetector(
+    return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
       },
@@ -249,6 +248,6 @@ class SignupScreen extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    );
   }
 }

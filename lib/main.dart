@@ -8,49 +8,50 @@ import 'package:paysense/views/SplashScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Debug prints to check initialization
   debugPrint('Initializing Firebase...');
-  
+
   if (Firebase.apps.isEmpty) {
     debugPrint('No Firebase apps initialized. Initializing now...');
     await Firebase.initializeApp(
-       options: DefaultFirebaseOptions.currentPlatform,
+      options: DefaultFirebaseOptions.currentPlatform,
     );
     debugPrint('Firebase initialized.');
   } else {
     debugPrint('Firebase already initialized.');
   }
-
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ),
-  );
-  
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ),
-  );
-  
+// SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+//   systemNavigationBarContrastEnforced: false,
+//   systemNavigationBarDividerColor: Colors.transparent,
+//   systemNavigationBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
+//   systemNavigationBarColor: Colors.transparent,
+// ));
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return GetMaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor:
-            isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
+    // Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
+    return AnnotatedRegion(
+        value: const SystemUiOverlayStyle(
+            systemNavigationBarContrastEnforced: false,
+            systemNavigationBarDividerColor: Colors.transparent,
+            systemNavigationBarIconBrightness: Brightness.dark,
+            systemNavigationBarColor: Colors.transparent,
+            statusBarColor: Colors.transparent,
+            systemStatusBarContrastEnforced: false),
+        child: GetMaterialApp(
+          theme: ThemeData(
+            scaffoldBackgroundColor:
+                isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
+          ),
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
+        ));
   }
 }

@@ -15,8 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       body: Stack(
         children: [
           const Uitemplate(),
@@ -100,6 +99,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-    ));
+    );
   }
 }

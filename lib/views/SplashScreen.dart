@@ -21,51 +21,49 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(const Duration(seconds: 5), () {
-      Get.to(() => HomeScreen()); // Navigate to LoginView
+      Get.off(() => HomeScreen()); // Navigate to LoginView
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    
-    return  Scaffold(
-        body: Stack(
-          children: [
-            const Uitemplate(),
-            const Positioned(
-                bottom: 0,
-                right: -100,
-                child: SizedBox(height: 150, child: Uitemplate())),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(
-                  child: SvgPicture.asset(
-                    DummyImg.splashLogo,
-                    semanticsLabel:
-                        'Splash Logo', // Optional: For accessibility
-                    placeholderBuilder: (BuildContext context) =>
-                        CircularProgressIndicator(), // Optional: Placeholder while loading
-                    fit: BoxFit.contain,
-                  ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          const Uitemplate(),
+          const Positioned(
+              bottom: 0,
+              right: -100,
+              child: SizedBox(height: 150, child: Uitemplate())),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: SvgPicture.asset(
+                  DummyImg.splashLogo,
+                  semanticsLabel: 'Splash Logo', // Optional: For accessibility
+                  placeholderBuilder: (BuildContext context) =>
+                      CircularProgressIndicator(), // Optional: Placeholder while loading
+                  fit: BoxFit.contain,
                 ),
-                Center(
-                  child: FittedBox(
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        'Your Money Your Hold',
-                        style: GoogleFonts.poppins(
-                          fontSize: 25,
-                          color: const Color(0xff459BFF),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      )),
-                )
-              ],
-            ),
-          ],
-        ),
-      );
+              ),
+              Center(
+                child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      'Your Money Your Hold',
+                      style: GoogleFonts.poppins(
+                        fontSize: 25,
+                        color: const Color(0xff459BFF),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }

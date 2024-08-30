@@ -10,6 +10,7 @@ import 'package:paysense/utils/Images.dart';
 import 'package:paysense/views/SendamountScreen.dart';
 import 'package:paysense/views/TabbarView.dart';
 import 'package:paysense/views/UiTemplate.dart';
+import 'package:paysense/widgets/BottomBar.dart';
 import 'package:paysense/widgets/RoundButton.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -190,7 +191,7 @@ class DashboardScreen extends StatelessWidget {
                         ),
                         const SizedBox(
                           height: 50,
-                        )
+                        ),
                       ],
                     )
                   ],

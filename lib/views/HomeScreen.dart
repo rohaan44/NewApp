@@ -68,37 +68,43 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 26,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: DummyButton(
-                      title: "Register",
-                      clr: ColorUtil.bgblue,
-                      textClr: ColorUtil.whitecolor,
-                      onPress: () {
-                        Get.to(() => SignupScreen());
-                      }),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: DummyButton(
-                      title: "Login",
-                      clr: ColorUtil.whitecolor,
-                      textClr: ColorUtil.blackcolor,
-                      onPress: () {
-                        Get.to(() => LoginScreen());
-                      }),
-                )
               ],
             ),
           ),
         ],
       ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: DummyButton(
+                title: "Register",
+                clr: ColorUtil.bgblue,
+                textClr: ColorUtil.whitecolor,
+                onPress: () {
+                  Get.off(() => SignupScreen());
+                }),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: DummyButton(
+                title: "Login",
+                clr: ColorUtil.whitecolor,
+                textClr: ColorUtil.blackcolor,
+                onPress: () {
+                  Get.off(() => LoginScreen());
+                }),
+          ),
+          SizedBox(
+            height: 26,
+          ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

@@ -21,12 +21,6 @@ void main() async {
   } else {
     debugPrint('Firebase already initialized.');
   }
-// SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-//   systemNavigationBarContrastEnforced: false,
-//   systemNavigationBarDividerColor: Colors.transparent,
-//   systemNavigationBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
-//   systemNavigationBarColor: Colors.transparent,
-// ));
   runApp(const MyApp());
 }
 
@@ -38,11 +32,12 @@ class MyApp extends StatelessWidget {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     // Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
     return AnnotatedRegion(
-        value: const SystemUiOverlayStyle(
+        value: SystemUiOverlayStyle(
             systemNavigationBarContrastEnforced: false,
             systemNavigationBarDividerColor: Colors.transparent,
             systemNavigationBarIconBrightness: Brightness.dark,
-            systemNavigationBarColor: Colors.transparent,
+            systemNavigationBarColor:
+                isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
             statusBarColor: Colors.transparent,
             systemStatusBarContrastEnforced: false),
         child: GetMaterialApp(

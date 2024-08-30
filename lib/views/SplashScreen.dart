@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
 import 'package:paysense/views/HomeScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';

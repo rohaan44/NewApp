@@ -19,14 +19,14 @@ class FingerKeypad extends StatefulWidget {
 
 class _FingerKeypadState extends State<FingerKeypad> {
   late final LocalAuthentication auth;
-  bool _supportState = false;
+  bool supportState = false;
   @override
   void initState() {
     super.initState();
     auth = LocalAuthentication();
     auth.isDeviceSupported().then(
           (bool isSupported) => setState(() {
-            _supportState = isSupported;
+            supportState = isSupported;
           }),
         );
   }

@@ -17,7 +17,7 @@ class TransScriptScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+  
     final TranscriptController controller = Get.put(TranscriptController());
     final SendingAmountController recieverAmount =
         Get.find<SendingAmountController>();

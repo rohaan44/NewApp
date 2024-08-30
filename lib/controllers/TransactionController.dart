@@ -113,8 +113,8 @@ class TransactionController extends GetxController {
           transactionData(
               senderData['phoneNumber'] ?? '',
               recieverData['phoneNumber'] ?? '',
-              senderData['fullname'] ?? '',
-              recieverData['fullname'] ?? '',
+              senderData['fullName'] ?? '',
+              recieverData['fullName'] ?? '',
               sendingAmount?.toString() ?? '0',
               status.value);
         } catch (e) {

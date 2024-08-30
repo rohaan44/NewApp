@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:paysense/utils/colors.dart';
+
 
 class GlowCircleAvatar extends StatelessWidget {
   final String imagePath;
@@ -13,7 +13,7 @@ class GlowCircleAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration:const BoxDecoration(
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(

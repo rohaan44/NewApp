@@ -1,5 +1,7 @@
 import 'dart:developer';
-
+import 'package:paysense/res/routes/RouteNames.dart';
+import 'package:paysense/widgets/BottomBar.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -7,10 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/UserController.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
-import 'package:paysense/views/SendamountScreen.dart';
 import 'package:paysense/views/TabbarView.dart';
 import 'package:paysense/views/UiTemplate.dart';
-import 'package:paysense/widgets/BottomBar.dart';
 import 'package:paysense/widgets/RoundButton.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -20,7 +20,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final UserController userController = Get.put(UserController());
-    Future<void> _refreshScreen() async {
+    Future<void> refreshScreen() async {
       userController.fetchUserData();
     }
 
@@ -28,7 +28,7 @@ class DashboardScreen extends StatelessWidget {
       return Scaffold(
         body: RefreshIndicator(
             color: ColorUtil.bgblue,
-            onRefresh: _refreshScreen,
+            onRefresh: refreshScreen,
             child: Stack(
               children: [
                 const Uitemplate(),
@@ -86,12 +86,33 @@ class DashboardScreen extends StatelessWidget {
                         Center(
                           child: Obx(() {
                             if (userController.isLoading.value) {
-                              return Center(
-                                  child: CircularProgressIndicator(
-                                color: ColorUtil.bgblue,
-                                backgroundColor:
-                                    const Color.fromARGB(155, 200, 223, 235),
-                              ));
+                              // Shimmer effect when loading
+                              return Shimmer.fromColors(
+                                baseColor: const Color(0xff9f9f9f)!,
+                                highlightColor: const Color(0xffF1F1F1)!,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 200.0,
+                                      height: 60.0,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(height: 6),
+                                    Container(
+                                      width: 150.0,
+                                      height: 20.0,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(height: 6),
+                                    Container(
+                                      width: 100.0,
+                                      height: 20.0,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              );
                             } else if (userController.errorMessage.isNotEmpty) {
                               log('Error: ${userController.errorMessage.value}');
                               return Padding(
@@ -102,11 +123,13 @@ class DashboardScreen extends StatelessWidget {
                                     textAlign: TextAlign.center,
                                     userController.errorMessage.value,
                                     style: GoogleFonts.poppins(
-                                        textStyle: TextStyle(
-                                            fontSize: 15,
-                                            color: isDarkMode
-                                                ? ColorUtil.blackcolor
-                                                : ColorUtil.whitecolor)),
+                                      textStyle: TextStyle(
+                                        fontSize: 15,
+                                        color: isDarkMode
+                                            ? ColorUtil.blackcolor
+                                            : ColorUtil.whitecolor,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               );
@@ -153,7 +176,9 @@ class DashboardScreen extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  Get.to(() => const SendAmountScreen());
+                                  Get.toNamed(
+                                    RouteName.sendAmountScreen,
+                                  );
                                 },
                                 child: RoundButton(
                                   iconn: Icons.call_made_outlined,

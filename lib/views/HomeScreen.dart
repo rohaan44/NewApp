@@ -31,6 +31,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Center(
                   child: SvgPicture.asset(
+                    width: Get.width * 0.7,
                     DummyImg.splashLogo,
                     semanticsLabel:
                         'Splash Logo', // Optional: For accessibility
@@ -46,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                       child: Text(
                         "Let's Start",
                         style: GoogleFonts.poppins(
-                          fontSize: 40,
+                          fontSize: Get.width * 0.130,
                           color: isDarkMode
                               ? ColorUtil.blackcolor
                               : ColorUtil.whitecolor,
@@ -59,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                   child: Text(
                     'Create your account if your are not regisered\n\t\tor if your are registered then simply login.',
                     style: GoogleFonts.poppins(
-                      fontSize: 13,
+                      fontSize: Get.width * 0.038,
                       color: isDarkMode
                           ? ColorUtil.blackcolor
                           : ColorUtil.whitecolor,

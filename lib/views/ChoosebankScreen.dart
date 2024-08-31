@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/ChoosebankController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
 import 'package:paysense/views/EnteraccScreen.dart';
@@ -90,15 +91,12 @@ class ChooseBankScreen extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 12),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => EnterAccNo(
-                                  namee: homeController
-                                      .foundPlayers.value[index]['bankname'],
-                                  imgg: homeController.foundPlayers.value[index]
-                                      ['bankimg'],
-                                )));
+                    Get.toNamed(RouteName.enterAccNoScreen, arguments: {
+                      'namee': homeController.foundPlayers.value[index]
+                          ['bankname'],
+                      'imgg': homeController.foundPlayers.value[index]
+                          ['bankimg'],
+                    });
                   },
                   child: ListTile(
                     leading: GlowCircleAvatar(
@@ -106,14 +104,6 @@ class ChooseBankScreen extends StatelessWidget {
                           ['bankimg'],
                       bg: ColorUtil.whitecolor,
                     ),
-                    // leading: ClipOval(
-
-                    //   child: SvgPicture.asset(
-                    //   homeController.foundPlayers.value[index]['bankimg'],
-                    //   fit: BoxFit.cover,
-                    // )
-                    //     // radius: 20,
-                    //     ),
                     title: Text(
                       homeController.foundPlayers.value[index]['bankname'],
                       style: GoogleFonts.poppins(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
 import 'package:paysense/views/ChoosebankScreen.dart';
@@ -58,7 +59,7 @@ class SendMoneyScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => ChooseBankScreen());
+                  Get.toNamed(RouteName.chooseBankScreen);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,

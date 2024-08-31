@@ -34,13 +34,13 @@ class LoginScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    SizedBox(height: Get.height * 0.09),
+                    SizedBox(height: Get.height * 0.099),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text(
                         'Welcome back..!',
                         style: GoogleFonts.poppins(
-                          fontSize: 28,
+                          fontSize: Get.width * 0.1,
                           color: isDarkMode
                               ? ColorUtil.blackcolor
                               : ColorUtil.whitecolor,
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                               text: 'Login to',
                               style: GoogleFonts.poppins(
                                 height: 1.5,
-                                fontSize: 17,
+                                fontSize: Get.width * 0.044,
                                 color: isDarkMode
                                     ? ColorUtil.blackcolor
                                     : ColorUtil.whitecolor,
@@ -71,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                               text: ' Pay Sense ',
                               style: GoogleFonts.poppins(
                                 height: 1.5,
-                                fontSize: 17,
+                                fontSize: Get.width * 0.048,
                                 color: ColorUtil.bgblue,
                                 fontWeight: FontWeight.w500,
                               ),
@@ -80,7 +80,7 @@ class LoginScreen extends StatelessWidget {
                               text: ' to enjoy your',
                               style: GoogleFonts.poppins(
                                 height: 1.5,
-                                fontSize: 17,
+                                fontSize: Get.width * 0.044,
                                 fontWeight: FontWeight.w400,
                                 color: isDarkMode
                                     ? ColorUtil.blackcolor
@@ -91,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                               text: '\nfast & free transactions  ',
                               style: GoogleFonts.poppins(
                                 height: 1.5,
-                                fontSize: 17,
+                                fontSize: Get.width * 0.044,
                                 color: isDarkMode
                                     ? ColorUtil.blackcolor
                                     : ColorUtil.whitecolor,
@@ -102,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: Get.height * 0.1),
+                    SizedBox(height: Get.height * 0.06),
                     Form(
                       key: _formKey,
                       child: Column(
@@ -152,7 +152,7 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             "Forget Pin?",
                             style: GoogleFonts.poppins(
-                              fontSize: 15,
+                              fontSize: Get.width * 0.039,
                               color: ColorUtil.bgblue,
                               fontWeight: FontWeight.w500,
                             ),
@@ -173,7 +173,7 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: Get.height * 0.4,
+                  height: Get.height * 0.3,
                 ),
                 Obx(
                   () => DummyButton(

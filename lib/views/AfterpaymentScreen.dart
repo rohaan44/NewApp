@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
 import 'package:paysense/views/DashboardScreen.dart';
@@ -60,7 +61,7 @@ class AfterPaymentScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => DashboardScreen());
+                      Get.offAllNamed(RouteName.dashboardScreen);
                     },
                     child: SvgPicture.asset(
                       DummyImg.closecircle,
@@ -250,7 +251,7 @@ class AfterPaymentScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 35, right: 35, top: 40),
               child: GestureDetector(
                 onTap: () {
-                  Get.to(() => TransConfirmScreen());
+                  Get.toNamed(RouteName.transConfirmScreen);
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,

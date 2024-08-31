@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/controllers/UserController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Images.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/views/SendmoneyScreen.dart';
@@ -183,7 +184,7 @@ class SendAmountScreen extends StatelessWidget {
                         () => GestureDetector(
                           onTap: () {
                             if (bePayAmntView.isButtonEnabled.value) {
-                              Get.to(() => const SendMoneyScreen());
+                              Get.toNamed(RouteName.sendmoneyScreen);
                             } else {
                               null;
                             }

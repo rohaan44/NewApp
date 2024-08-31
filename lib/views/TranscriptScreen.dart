@@ -7,9 +7,9 @@ import 'package:paysense/controllers/EnteraccController.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/controllers/TranscriptController.dart';
 import 'package:paysense/controllers/UserController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
-import 'package:paysense/views/DashboardScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
 
 class TransScriptScreen extends StatelessWidget {
@@ -17,7 +17,6 @@ class TransScriptScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
     final TranscriptController controller = Get.put(TranscriptController());
     final SendingAmountController recieverAmount =
         Get.find<SendingAmountController>();
@@ -201,9 +200,7 @@ class TransScriptScreen extends StatelessWidget {
                                                     fontWeight:
                                                         FontWeight.w600)),
                                             Text(
-                                                "Rs: " +
-                                                    recieverAmount
-                                                        .textEdit.text,
+                                                "Rs: ${recieverAmount.textEdit.text}",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorUtil.blackcolor,
                                                     fontSize: 15,
@@ -316,12 +313,12 @@ class TransScriptScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: Container(
+      floatingActionButton: SizedBox(
         width: Get.width * 1,
         height: MediaQuery.of(context).size.height * 0.09,
         child: FloatingActionButton(
           onPressed: () {
-            Get.to(() => DashboardScreen());
+            Get.offNamed(RouteName.dashboardScreen);
           },
           backgroundColor: Colors.transparent,
           elevation: 0,

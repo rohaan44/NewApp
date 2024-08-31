@@ -41,6 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Center(
                 child: SvgPicture.asset(
+                  width: Get.width * 0.8,
                   DummyImg.splashLogo,
                   semanticsLabel: 'Splash Logo', // Optional: For accessibility
                   placeholderBuilder: (BuildContext context) =>
@@ -54,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Text(
                       'Your Money Your Hold',
                       style: GoogleFonts.poppins(
-                        fontSize: 25,
+                        fontSize: Get.width * 0.077,
                         color: const Color(0xff459BFF),
                         fontWeight: FontWeight.w400,
                       ),

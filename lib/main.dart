@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:paysense/firebase_options.dart';
+import 'package:paysense/res/routes/Routes.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/views/SplashScreen.dart';
 
@@ -30,23 +31,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    // Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
     return AnnotatedRegion(
-        value: SystemUiOverlayStyle(
-            systemNavigationBarContrastEnforced: false,
-            systemNavigationBarDividerColor: Colors.transparent,
-            systemNavigationBarIconBrightness: Brightness.dark,
-            systemNavigationBarColor:
-                isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
-            statusBarColor: Colors.transparent,
-            systemStatusBarContrastEnforced: false),
-        child: GetMaterialApp(
+      value: SystemUiOverlayStyle(
+          systemNavigationBarContrastEnforced: false,
+          systemNavigationBarDividerColor: Colors.transparent,
+          systemNavigationBarIconBrightness: Brightness.dark,
+          systemNavigationBarColor:
+              isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
+          statusBarColor: Colors.transparent,
+          systemStatusBarContrastEnforced: false),
+      child: GetMaterialApp(
+          darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.system,
           theme: ThemeData(
             scaffoldBackgroundColor:
                 isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
           ),
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
-        ));
+          getPages: AppRoutes.routes),
+    );
   }
 }

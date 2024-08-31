@@ -12,58 +12,75 @@ import 'package:paysense/views/SignupScreen.dart';
 import 'package:paysense/views/SplashScreen.dart';
 import 'package:paysense/views/TransconfirmScreen.dart';
 import 'package:paysense/views/TranscriptScreen.dart';
+import 'package:paysense/widgets/BottomBar.dart';
 
 class AppRoutes {
   static final routes = [
     GetPage(
       name: RouteName.splashScreen,
-      page: () => SplashScreen(),
+      page: () => const SplashScreen(),
     ),
     GetPage(
       name: RouteName.homeScreen,
-      page: () => HomeScreen(),
+      page: () => const HomeScreen(),
+      transition: Transition.leftToRightWithFade,
+      transitionDuration: const Duration(seconds: 1),
     ),
     GetPage(
       name: RouteName.signupScreen,
-      page: () => SignupScreen(),
+      page: () => const SignupScreen(),
+      transitionDuration: const Duration(seconds: 1),
+      transition: Transition.leftToRightWithFade,
     ),
     GetPage(
-      name: RouteName.loginScreen,
-      page: () => LoginScreen(),
-    ),
+        name: RouteName.loginScreen,
+        page: () => LoginScreen(),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.dashboardScreen,
-      page: () => DashboardScreen(),
-    ),
+        name: RouteName.dashboardScreen,
+        page: () => BottomBar(),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.sendAmountScreen,
-      page: () => SendAmountScreen(),
-    ),
+        name: RouteName.sendAmountScreen,
+        page: () => const SendAmountScreen(),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.sendmoneyScreen,
-      page: () => SendMoneyScreen(),
-    ),
+        name: RouteName.sendmoneyScreen,
+        page: () => const SendMoneyScreen(),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.chooseBankScreen,
-      page: () => ChooseBankScreen(),
-    ),
+        name: RouteName.chooseBankScreen,
+        page: () => const ChooseBankScreen(),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.enterAccNoScreen,
-      page: () => EnterAccNo(namee: '', imgg: ''),
-    ),
+        name: RouteName.enterAccNoScreen,
+        page: () => EnterAccNo(
+              namee: Get.arguments['namee'],
+              imgg: Get.arguments['imgg'],
+            ),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.afterPayAmntScreen,
-      page: () => AfterPaymentScreen(
-        userData: Get.arguments,
-      ),
-    ),
+        name: RouteName.afterPayAmntScreen,
+        page: () => AfterPaymentScreen(
+              userData: Get.arguments,
+            ),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.transConfirmScreen,
-      page: () => TransConfirmScreen(),
-    ),
+        name: RouteName.transConfirmScreen,
+        page: () => const TransConfirmScreen(),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
     GetPage(
-      name: RouteName.transScriptScreen,
-      page: () => TransScriptScreen(),
-    ),
+        name: RouteName.transScriptScreen,
+        page: () => const TransScriptScreen(),
+        transitionDuration: const Duration(seconds: 1),
+        transition: Transition.leftToRightWithFade),
   ];
 }

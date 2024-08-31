@@ -9,10 +9,10 @@ import 'package:paysense/views/UiTemplate.dart';
 import 'package:paysense/widgets/Button.dart';
 
 class EnterAccNo extends StatelessWidget {
-  String namee;
-  String imgg;
-  EnterAccNo({super.key, required this.namee, required this.imgg});
+  final String namee;
+  final String imgg;
 
+  EnterAccNo({Key? key, required this.namee, required this.imgg}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     EnterAccController enterAccController = Get.put(EnterAccController());
@@ -172,6 +172,5 @@ class EnterAccNo extends StatelessWidget {
         ],
       ),
     );
-    
   }
 }

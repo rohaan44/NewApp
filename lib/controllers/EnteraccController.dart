@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paysense/controllers/LoginController.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/views/AfterpaymentScreen.dart';
 import 'package:paysense/widgets/Customkeyboard.dart';
@@ -98,7 +99,7 @@ class EnterAccController extends GetxController {
     loading.value = false;
     if (data != null) {
       userData.value = data; // Assign the data to userData
-      Get.to(() => AfterPaymentScreen(userData: userData));
+      Get.toNamed(RouteName.afterPayAmntScreen, arguments: userData);
     } else {
       Get.snackbar("Error", "Account Number is invalid");
     }

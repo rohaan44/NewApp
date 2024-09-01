@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:paysense/controllers/BottombarController.dart';
 import 'package:paysense/firebase_options.dart';
 import 'package:paysense/res/routes/Routes.dart';
 import 'package:paysense/utils/Colors.dart';
@@ -22,6 +23,7 @@ void main() async {
   } else {
     debugPrint('Firebase already initialized.');
   }
+
   runApp(const MyApp());
 }
 

@@ -38,7 +38,7 @@ class Logincontroller extends GetxController {
     });
   }
 
-    Future<void> login() async {
+  Future<void> login() async {
     final String email = emailController.text;
     final String pin = pinController.text;
     final String adjustedPin = pin.padRight(6, '0');
@@ -52,7 +52,8 @@ class Logincontroller extends GetxController {
 
     try {
       // Sign in with Firebase
-      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: adjustedPin,
       );
@@ -61,7 +62,7 @@ class Logincontroller extends GetxController {
       Get.put(UserController()).fetchUserData();
 
       Get.snackbar("Congratulations", "User Logged In Successfully");
-      Get.to(() => const DashboardScreen());
+      Get.to(() => DashboardScreen());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.snackbar("Error", "No user found for that email.");
@@ -71,10 +72,10 @@ class Logincontroller extends GetxController {
         Get.snackbar("Error", e.message ?? "An error occurred.");
       }
     } catch (error) {
-      Get.snackbar("Error", "An unexpected error occurred: ${error.toString()}");
+      Get.snackbar(
+          "Error", "An unexpected error occurred: ${error.toString()}");
     } finally {
       isLoading.value = false;
     }
   }
-
 }

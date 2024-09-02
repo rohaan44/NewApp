@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/views/CardScreen.dart';
 import 'package:paysense/views/ChatScreen.dart';
+import 'package:paysense/views/QrScreen.dart';
 import 'package:paysense/views/ShopScreen.dart';
 import 'package:paysense/widgets/BottomBar.dart';
 import 'package:shimmer/shimmer.dart';
@@ -244,9 +245,10 @@ class DashboardScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              ChatScreen(),
-              CardView(),
-              ShopScreen()
+              const ChatScreen(),
+              const CardView(),
+              const QrScreen(),
+              const ShopScreen()
             ]),
         bottomNavigationBar: BottomBar(),
       );

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/BottombarController.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:paysense/utils/images.dart';
 
 class BottomBar extends StatelessWidget {
   BottomBar({super.key});
@@ -17,16 +15,17 @@ class BottomBar extends StatelessWidget {
 
     return BottomAppBar(
       elevation: 0,
-      color: isDarkMode ? const Color(0xff394660) : const Color(0xffebeff9),
+      color: Colors.transparent,
       // height: 56, // Adjusted height
       shape: const CircularNotchedRectangle(),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          buildNavBarItem(0, DummyImg.home, "Home", isDarkMode, isLightMode),
-          buildNavBarItem(1, DummyImg.chat, "Chat", isDarkMode, isLightMode),
-          buildNavBarItem(2, DummyImg.card, "Card", isDarkMode, isLightMode),
-          buildNavBarItem(3, DummyImg.shop, "Shop", isDarkMode, isLightMode),
+          buildNavBarItem(0, Icons.home, "Home", isDarkMode, isLightMode),
+          buildNavBarItem(1, Icons.chat, "Chat", isDarkMode, isLightMode),
+          buildNavBarItem(
+              2, Icons.credit_card, "Card", isDarkMode, isLightMode),
+          buildNavBarItem(3, Icons.qr_code, "Scan Qr", isDarkMode, isLightMode),
+          buildNavBarItem(4, Icons.shop, "Shop", isDarkMode, isLightMode),
         ],
       ),
     );
@@ -34,8 +33,8 @@ class BottomBar extends StatelessWidget {
     // );
   }
 
-  MaterialButton buildNavBarItem(
-      int index, String icon, String label, bool isDarkMode, bool isLightMode) {
+  MaterialButton buildNavBarItem(int index, IconData icon, String label,
+      bool isDarkMode, bool isLightMode) {
     return MaterialButton(
         minWidth: 40,
         onPressed: () {
@@ -46,9 +45,9 @@ class BottomBar extends StatelessWidget {
           () => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
+              Icon(
                 icon,
-                width: 20, // Adjusted size
+                size: 30, // Adjusted size
                 color: getTabColor(index, controller.currentTab.value,
                     isDarkMode, isLightMode),
               ),
@@ -57,8 +56,8 @@ class BottomBar extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   color: getTabColor(controller.currentTab.value, index,
                       isDarkMode, isLightMode),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
+                  fontSize: Get.width * 0.035,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ],
@@ -69,12 +68,12 @@ class BottomBar extends StatelessWidget {
   Color getTabColor(
       int check, int currentTab, bool isDarkMode, bool isLightMode) {
     if (currentTab == check) {
-      return Colors.blue;
+      return const Color(0xff67ADFF);
     } else {
       return isDarkMode
-          ? Colors.white
+          ? Color(0xff141a16) 
           : isLightMode
-              ? Colors.black
+              ? Color(0xffFDFDFD)
               : Colors.black;
     }
   }

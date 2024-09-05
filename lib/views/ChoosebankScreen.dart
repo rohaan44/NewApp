@@ -6,7 +6,6 @@ import 'package:paysense/controllers/ChoosebankController.dart';
 import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
-import 'package:paysense/views/EnteraccScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
 import 'package:paysense/widgets/GrowCircle.dart';
 
@@ -38,7 +37,7 @@ class ChooseBankScreen extends StatelessWidget {
                   width: 32,
                   height: 32,
                   color:
-                      isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
+                      isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
                 ),
               ),
             ],
@@ -53,7 +52,7 @@ class ChooseBankScreen extends StatelessWidget {
             child: Text(
               "Choose Institution",
               style: GoogleFonts.poppins(
-                color: isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
+                color: isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
                 fontSize: 30,
                 fontWeight: FontWeight.w400,
               ),
@@ -102,14 +101,16 @@ class ChooseBankScreen extends StatelessWidget {
                     leading: GlowCircleAvatar(
                       imagePath: homeController.foundPlayers.value[index]
                           ['bankimg'],
-                      bg: ColorUtil.whitecolor,
+                      bg: isDarkMode
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                     ),
                     title: Text(
                       homeController.foundPlayers.value[index]['bankname'],
                       style: GoogleFonts.poppins(
                         color: isDarkMode
-                            ? ColorUtil.blackcolor
-                            : ColorUtil.whitecolor,
+                            ? ColorUtil.whitecolor
+                            : ColorUtil.blackcolor,
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                       ),

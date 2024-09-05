@@ -44,8 +44,8 @@ class AfterPaymentScreen extends StatelessWidget {
                       width: 32,
                       height: 32,
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                     ),
                   ),
                   Text(
@@ -55,8 +55,8 @@ class AfterPaymentScreen extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       letterSpacing: 1.12,
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                     ),
                   ),
                   GestureDetector(
@@ -68,8 +68,8 @@ class AfterPaymentScreen extends StatelessWidget {
                       width: 32,
                       height: 32,
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                     ),
                   ),
                 ],

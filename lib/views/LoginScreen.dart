@@ -42,8 +42,8 @@ class LoginScreen extends StatelessWidget {
                         style: GoogleFonts.poppins(
                           fontSize: Get.width * 0.1,
                           color: isDarkMode
-                              ? ColorUtil.blackcolor
-                              : ColorUtil.whitecolor,
+                              ? ColorUtil.whitecolor
+                              : ColorUtil.blackcolor,
                           height: 1.17,
                           fontWeight: FontWeight.w500,
                         ),
@@ -62,8 +62,8 @@ class LoginScreen extends StatelessWidget {
                                 height: 1.5,
                                 fontSize: Get.width * 0.044,
                                 color: isDarkMode
-                                    ? ColorUtil.blackcolor
-                                    : ColorUtil.whitecolor,
+                                    ? ColorUtil.whitecolor
+                                    : ColorUtil.blackcolor,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -83,8 +83,8 @@ class LoginScreen extends StatelessWidget {
                                 fontSize: Get.width * 0.044,
                                 fontWeight: FontWeight.w400,
                                 color: isDarkMode
-                                    ? ColorUtil.blackcolor
-                                    : ColorUtil.whitecolor,
+                                    ? ColorUtil.whitecolor
+                                    : ColorUtil.blackcolor,
                               ),
                             ),
                             TextSpan(
@@ -93,8 +93,8 @@ class LoginScreen extends StatelessWidget {
                                 height: 1.5,
                                 fontSize: Get.width * 0.044,
                                 color: isDarkMode
-                                    ? ColorUtil.blackcolor
-                                    : ColorUtil.whitecolor,
+                                    ? ColorUtil.whitecolor
+                                    : ColorUtil.blackcolor,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -152,9 +152,9 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             "Forget Pin?",
                             style: GoogleFonts.poppins(
-                              fontSize: Get.width * 0.039,
+                              fontSize: Get.width * 0.040,
                               color: ColorUtil.bgblue,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],

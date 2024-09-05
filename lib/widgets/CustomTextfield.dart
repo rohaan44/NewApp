@@ -25,8 +25,11 @@ class RoundedTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return TextFormField(
-      style: TextStyle(
-          color: isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor),
+      style: GoogleFonts.poppins(
+        textStyle: TextStyle(
+          color: isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
+        ),
+      ),
       obscureText: obscureText!,
       validator: validator,
       keyboardType: keyboardType,

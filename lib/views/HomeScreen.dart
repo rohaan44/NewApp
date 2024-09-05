@@ -49,8 +49,8 @@ class HomeScreen extends StatelessWidget {
                         style: GoogleFonts.poppins(
                           fontSize: Get.width * 0.130,
                           color: isDarkMode
-                              ? ColorUtil.blackcolor
-                              : ColorUtil.whitecolor,
+                              ? ColorUtil.whitecolor
+                              : ColorUtil.blackcolor,
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.normal,
                         ),
@@ -62,8 +62,8 @@ class HomeScreen extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: Get.width * 0.038,
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                     ),

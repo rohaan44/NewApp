@@ -12,7 +12,8 @@ class EnterAccNo extends StatelessWidget {
   final String namee;
   final String imgg;
 
-  EnterAccNo({Key? key, required this.namee, required this.imgg}) : super(key: key);
+  EnterAccNo({Key? key, required this.namee, required this.imgg})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     EnterAccController enterAccController = Get.put(EnterAccController());
@@ -40,8 +41,8 @@ class EnterAccNo extends StatelessWidget {
                       width: 32,
                       height: 32,
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                     ),
                   ),
                 ],
@@ -57,8 +58,8 @@ class EnterAccNo extends StatelessWidget {
                   "Enter account number",
                   style: GoogleFonts.poppins(
                     color: isDarkMode
-                        ? ColorUtil.blackcolor
-                        : ColorUtil.whitecolor,
+                        ? ColorUtil.whitecolor
+                        : ColorUtil.blackcolor,
                     fontSize: 30,
                     fontWeight: FontWeight.w400,
                   ),
@@ -87,8 +88,8 @@ class EnterAccNo extends StatelessWidget {
                   namee,
                   style: TextStyle(
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                       fontSize: 18,
                       fontWeight: FontWeight.w500),
                 ),
@@ -102,8 +103,8 @@ class EnterAccNo extends StatelessWidget {
                   "Account number",
                   style: GoogleFonts.poppins(
                     color: isDarkMode
-                        ? ColorUtil.blackcolor
-                        : ColorUtil.whitecolor,
+                        ? ColorUtil.whitecolor
+                        : ColorUtil.blackcolor,
                     fontSize: 19,
                     fontWeight: FontWeight.w400,
                   ),
@@ -115,11 +116,13 @@ class EnterAccNo extends StatelessWidget {
               child: SizedBox(
                 height: 50,
                 child: TextField(
-                  style: TextStyle(
-                    color: isDarkMode
-                        ? ColorUtil.blackcolor
-                        : ColorUtil.whitecolor,
-                  ),
+                  cursorColor:
+                      isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
+                  style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                          color: isDarkMode
+                              ? ColorUtil.whitecolor
+                              : ColorUtil.blackcolor)),
                   controller: enterAccController.textacc,
                   onTap: () => enterAccController.openModal(context),
                   readOnly: true,

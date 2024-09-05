@@ -45,10 +45,6 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
           darkTheme: ThemeData.dark(),
           themeMode: ThemeMode.system,
-          theme: ThemeData(
-            scaffoldBackgroundColor:
-                isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
-          ),
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
           getPages: AppRoutes.routes),

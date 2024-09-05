@@ -31,7 +31,7 @@ class EnterAccController extends GetxController {
   }
 
   Color getBackgroundColor(BuildContext context) {
-    return isDarkMode(context) ? ColorUtil.whitecolor : ColorUtil.bgblue;
+    return isDarkMode(context) ? ColorUtil.bgblue : ColorUtil.bgblue;
   }
 
   void openModal(BuildContext context) {

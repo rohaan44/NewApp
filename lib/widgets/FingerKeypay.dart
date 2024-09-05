@@ -57,7 +57,7 @@ class _FingerKeypadState extends State<FingerKeypad> {
               child: Icon(
                 Icons.fingerprint,
                 size: 50,
-                color: isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
+                color: isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
               ),
             ),
           );
@@ -68,9 +68,9 @@ class _FingerKeypadState extends State<FingerKeypad> {
               child: Text(key,
                   style: GoogleFonts.poppins(
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
-                      fontSize: 30,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
+                      fontSize: 35,
                       height: 2.1,
                       fontWeight: FontWeight.w500)),
             ),

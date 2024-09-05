@@ -36,8 +36,8 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
             child: Text(key,
                 style: GoogleFonts.poppins(
                     color: isDarkMode
-                        ? ColorUtil.blackcolor
-                        : ColorUtil.whitecolor,
+                        ? ColorUtil.whitecolor
+                        : ColorUtil.blackcolor,
                     fontSize: 35,
                     height: widget.height,
                     fontWeight: FontWeight.w600)),

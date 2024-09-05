@@ -23,64 +23,54 @@ class AppRoutes {
     GetPage(
       name: RouteName.homeScreen,
       page: () => const HomeScreen(),
-      transition: Transition.leftToRightWithFade,
-      transitionDuration: const Duration(seconds: 1),
+      transition: Transition.leftToRight,
     ),
     GetPage(
       name: RouteName.signupScreen,
       page: () => const SignupScreen(),
       transitionDuration: const Duration(seconds: 1),
-      transition: Transition.leftToRightWithFade,
+      transition: Transition.leftToRight,
     ),
     GetPage(
         name: RouteName.loginScreen,
         page: () => LoginScreen(),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.dashboardScreen,
         page: () => BottomBar(),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.sendAmountScreen,
         page: () => const SendAmountScreen(),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.sendmoneyScreen,
         page: () => const SendMoneyScreen(),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.chooseBankScreen,
         page: () => const ChooseBankScreen(),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.enterAccNoScreen,
         page: () => EnterAccNo(
               namee: Get.arguments['namee'],
               imgg: Get.arguments['imgg'],
             ),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.afterPayAmntScreen,
         page: () => AfterPaymentScreen(
               userData: Get.arguments,
             ),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.transConfirmScreen,
         page: () => const TransConfirmScreen(),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
     GetPage(
         name: RouteName.transScriptScreen,
         page: () => const TransScriptScreen(),
-        transitionDuration: const Duration(seconds: 1),
-        transition: Transition.leftToRightWithFade),
+        transition: Transition.leftToRight),
   ];
 }

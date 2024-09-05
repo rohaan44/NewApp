@@ -39,14 +39,14 @@ class MyApp extends StatelessWidget {
           systemNavigationBarDividerColor: Colors.transparent,
           systemNavigationBarIconBrightness: Brightness.dark,
           systemNavigationBarColor:
-              isDarkMode ? ColorUtil.whitecolor : ColorUtil.blackcolor,
+              isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
           statusBarColor: Colors.transparent,
           systemStatusBarContrastEnforced: false),
       child: GetMaterialApp(
           darkTheme: ThemeData.dark(),
           themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
-          home: SplashScreen(),
+          home: const SplashScreen(),
           getPages: AppRoutes.routes),
     );
   }

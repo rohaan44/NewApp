@@ -25,7 +25,7 @@ class DashboardScreen extends StatelessWidget {
 
   final BarController bottomBarController = Get.put(BarController());
 
-  // RxInt _currentIndex = 0.obs;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -37,6 +37,7 @@ class DashboardScreen extends StatelessWidget {
 
     return GetBuilder<UserController>(builder: (controller) {
       return Scaffold(
+        key: scaffoldKey,
         body: PageView(
           controller: bottomBarController.pageController,
           onPageChanged: (index) {
@@ -106,7 +107,7 @@ class DashboardScreen extends StatelessWidget {
                                 // Shimmer effect when loading
                                 return Shimmer.fromColors(
                                   baseColor: const Color(0xff9f9f9f)!,
-                                  highlightColor: const Color(0xffF1F1F1)!,
+                                  highlightColor: const Color(0xffF1F1F1),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [

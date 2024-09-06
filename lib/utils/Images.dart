@@ -31,4 +31,5 @@ class DummyImg {
   static String closecircle = "assets/images/closecircle.svg";
   static String commute = "assets/images/commute.svg";
   static String splashLogo = 'assets/images/splashLogo.svg';
+  static String confuseEmoji = 'assets/images/confuseEmoji.svg';
 }

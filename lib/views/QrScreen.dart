@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:paysense/controllers/BottombarController.dart';
 import 'package:paysense/controllers/QrController.dart';
 import 'package:paysense/controllers/UserController.dart';
 import 'package:paysense/utils/Colors.dart';
@@ -38,27 +37,16 @@ class QrScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed('/DrawerView');
+                      Get.back();
                     },
                     child: SvgPicture.asset(
-                      DummyImg.icon,
+                      DummyImg.chevleft,
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
-                      width: 32,
-                      height: 32,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
+                      width: 35,
                     ),
                   ),
-                  // Text(
-                  //   'Pay Sense',
-                  //   style: GoogleFonts.poppins(
-                  //     fontSize: 23,
-                  //     fontWeight: FontWeight.w500,
-                  //     color: isDarkMode
-                  //         ? ColorUtil.blackcolor
-                  //         : ColorUtil.whitecolor,
-                  //   ),
-                  // ),
                   GestureDetector(
                     onTap: () {
                       Get.toNamed('/NotiView');
@@ -67,8 +55,8 @@ class QrScreen extends StatelessWidget {
                       Icons.notifications_none_outlined,
                       size: 35,
                       color: isDarkMode
-                          ? ColorUtil.blackcolor
-                          : ColorUtil.whitecolor,
+                          ? ColorUtil.whitecolor
+                          : ColorUtil.blackcolor,
                     ),
                   ),
                 ],

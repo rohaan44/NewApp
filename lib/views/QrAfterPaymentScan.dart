@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/res/routes/RouteNames.dart';
-import 'package:paysense/utils/colors.dart';
-import 'package:paysense/utils/images.dart';
+import 'package:paysense/utils/Colors.dart';
+import 'package:paysense/utils/Images.dart';
 import 'package:paysense/views/UiTemplate.dart';
 
-class AfterPaymentScreen extends StatelessWidget {
+class QrAfterPaymentScreen extends StatelessWidget {
   final RxMap<dynamic, dynamic> userData;
-  const AfterPaymentScreen({super.key, required this.userData});
+  const QrAfterPaymentScreen({super.key, required this.userData});
 
   @override
   Widget build(BuildContext context) {
@@ -289,5 +289,24 @@ class AfterPaymentScreen extends StatelessWidget {
         ],
       ),
     );
+
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text("Confirm Payment"),
+    //   ),
+    //   body: ListView(
+    //     padding: const EdgeInsets.all(20.0),
+    //     children: [
+    //       ListTile(
+    //         leading: CircleAvatar(
+    //           backgroundImage: NetworkImage(userData['profilePicUrl'] ?? ''),
+    //         ),
+    //         title: Text(userData['fullName'] ?? 'Unknown User'),
+    //         subtitle: Text(userData['phoneNumber'] ?? 'Unknown Number'),
+    //       ),
+    //       // Additional UI for payment confirmation
+    //     ],
+    //   ),
+    // );
   }
 }

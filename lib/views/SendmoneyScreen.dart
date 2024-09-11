@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
-import 'package:paysense/views/ChoosebankScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
 
 class SendMoneyScreen extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+// import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:intl/intl.dart';
 import 'package:paysense/controllers/EnteraccController.dart';
 import 'dart:ui' as ui;
@@ -52,8 +52,8 @@ class TranscriptController extends GetxController {
         if (byteData != null) {
           // Save image to gallery
           final result =
-              await ImageGallerySaver.saveImage(byteData.buffer.asUint8List());
-          print(result);
+              // await ImageGallerySaver.saveImage(byteData.buffer.asUint8List());
+          // print(result);
 
           Get.snackbar(
             'Success',

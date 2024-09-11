@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -8,6 +7,7 @@ import 'package:paysense/controllers/QrController.dart';
 import 'package:paysense/controllers/UserController.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
+import 'package:paysense/views/QrScannerScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
 import 'package:paysense/widgets/Strings.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -171,7 +171,9 @@ class QrScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => QrScannerScreen());
+                },
                 elevation: 5,
                 child: Center(
                   child: Text(

@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:paysense/controllers/BottombarController.dart';
 import 'package:paysense/firebase_options.dart';
 import 'package:paysense/res/routes/Routes.dart';
 import 'package:paysense/utils/Colors.dart';
@@ -33,15 +32,33 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return AnnotatedRegion(
-      value: SystemUiOverlayStyle(
-          systemNavigationBarContrastEnforced: false,
-          systemNavigationBarDividerColor: Colors.transparent,
-          systemNavigationBarIconBrightness: Brightness.dark,
-          systemNavigationBarColor:
-              isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
-          statusBarColor: Colors.transparent,
-          systemStatusBarContrastEnforced: false),
+
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarContrastEnforced: false,
+      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarIconBrightness:
+          isDarkMode ? Brightness.light : Brightness.dark,
+      systemNavigationBarColor:
+          isDarkMode ? ColorUtil.blackcolor : ColorUtil.whitecolor,
+      statusBarColor: Colors.transparent,
+      systemStatusBarContrastEnforced: false,
+    ));
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: isDarkMode
+          ? SystemUiOverlayStyle.dark.copyWith(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.light,
+              systemNavigationBarColor: ColorUtil.blackcolor,
+              systemNavigationBarIconBrightness: Brightness.dark,
+              systemStatusBarContrastEnforced: false,
+            )
+          : SystemUiOverlayStyle.light.copyWith(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.dark,
+              systemNavigationBarColor: ColorUtil.blackcolor,
+              systemNavigationBarIconBrightness: Brightness.dark,
+              systemStatusBarContrastEnforced: false),
       child: GetMaterialApp(
           darkTheme: ThemeData.dark(),
           themeMode: ThemeMode.system,

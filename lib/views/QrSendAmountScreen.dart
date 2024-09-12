@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/controllers/UserController.dart';
-import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Images.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/views/QrAfterPaymentScan.dart';
@@ -65,7 +64,7 @@ class QRSendAmountScreen extends StatelessWidget {
                     } else if (userController.userData.isEmpty) {
                       return Center(child: Text('No data available'));
                     } else {
-                      var userData = userController.qrUserData.value;
+                      var userData = userController.userData.value;
                       return Text(
                         "Current Balance \n \t\t\t\t\t\t\tRs " +
                             userData['amount'],

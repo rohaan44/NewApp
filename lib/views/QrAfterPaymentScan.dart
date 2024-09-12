@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paysense/controllers/QrTransconfirmController.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
+import 'package:paysense/views/QrTransConfirmScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
 
 class QrAfterPaymentScreen extends StatelessWidget {
@@ -249,7 +251,7 @@ class QrAfterPaymentScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 35, right: 35, top: 40),
               child: GestureDetector(
                 onTap: () {
-                  Get.toNamed(RouteName.transConfirmScreen);
+                  Get.to(()=>QrTransConfirmScreen());
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 1,

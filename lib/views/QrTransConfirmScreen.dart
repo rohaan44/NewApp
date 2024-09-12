@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:paysense/controllers/TransconfirmController.dart';
+import 'package:paysense/controllers/QrTransconfirmController.dart';
 import 'package:paysense/utils/colors.dart';
 import 'package:paysense/utils/images.dart';
 import 'package:paysense/views/UiTemplate.dart';
 import 'package:paysense/widgets/FingerKeypay.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class TransConfirmScreen extends StatelessWidget {
-  const TransConfirmScreen({super.key});
+class QrTransConfirmScreen extends StatelessWidget {
+  const QrTransConfirmScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    final TransConfirmController transController =
-        Get.put(TransConfirmController());
+    final QrTransConfirmController transController =
+        Get.put(QrTransConfirmController());
     return Scaffold(
       body: Stack(
         children: [
@@ -80,7 +80,6 @@ class TransConfirmScreen extends StatelessWidget {
 
                   animationDuration: const Duration(milliseconds: 300),
                   enableActiveFill: true,
-                  // errorAnimationController: errorController,
                   controller: transController.textControl,
                   onCompleted: (v) {
                     print(

@@ -1,17 +1,17 @@
-import 'dart:async';
 import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:paysense/controllers/EnteraccController.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
 import 'package:paysense/controllers/UserController.dart';
 
-class TransactionController extends GetxController {
-  final recieverData = Get.find<EnterAccController>().userData;
+class QrTransactionController extends GetxController {
+  final recieverData = Get.find<UserController>().qrUserData;
   final senderData = Get.find<UserController>().userData;
   final sendingAmountController = Get.find<SendingAmountController>().textEdit;
-  var status = false.obs;
+
+var status = false.obs;
 
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -156,4 +156,6 @@ class TransactionController extends GetxController {
 
 
   
+
+
 }

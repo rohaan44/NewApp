@@ -22,7 +22,7 @@ class UserController extends GetxController {
     try {
       isLoading(true);
       DocumentSnapshot userDoc = await firestore
-          .collection('users') // Assuming your collection is named 'users'
+          .collection('users')
           .doc(accountNumber)
           .get();
 

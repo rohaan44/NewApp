@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
           ? SystemUiOverlayStyle.dark.copyWith(
               statusBarColor: Colors.transparent,
               statusBarIconBrightness: Brightness.light,
-              systemNavigationBarColor: ColorUtil.blackcolor,
+              systemNavigationBarColor: ColorUtil.whitecolor,
               systemNavigationBarIconBrightness: Brightness.dark,
               systemStatusBarContrastEnforced: false,
             )

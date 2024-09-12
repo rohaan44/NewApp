@@ -22,8 +22,6 @@ class QrScannerScreen extends StatelessWidget {
             if (barcode.rawValue != null) {
               String accountNumber = barcode.rawValue!;
               log("Account number scanned: $accountNumber");
-
-              // Fetch data using account number
               userController.onQRCodeScanned(context, accountNumber);
               break;
             }

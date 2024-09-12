@@ -5,15 +5,16 @@ import 'package:get/get.dart';
 // import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:intl/intl.dart';
 import 'package:paysense/controllers/EnteraccController.dart';
- import 'dart:ui' as ui;
-// import 'package:paysense/views/TranscriptScreen.dart';
+import 'dart:ui' as ui;
+
+import 'package:paysense/controllers/UserController.dart';
 
 // Make sure this import is correct for your view
 
-class TranscriptController extends GetxController {
+class QrTranscriptController extends GetxController {
   final GlobalKey globalKey = GlobalKey();
   var loading = false.obs;
-  final EnterAccController recieverNumber = Get.find<EnterAccController>();
+  final recieverNumber = Get.find<UserController>().qrUserData;
   var formattedDate;
 
   // void verifyAccountNumber() async {

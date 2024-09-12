@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/QrController.dart';
 import 'package:paysense/controllers/UserController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
 import 'package:paysense/views/QrScannerScreen.dart';
@@ -37,7 +38,7 @@ class QrScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.back();
+                      Get.toNamed(RouteName.dashboardScreen);
                     },
                     child: SvgPicture.asset(
                       DummyImg.chevleft,

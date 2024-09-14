@@ -3,16 +3,18 @@ import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/views/AfterpaymentScreen.dart';
 import 'package:paysense/views/ChoosebankScreen.dart';
 import 'package:paysense/views/DashboardScreen.dart';
+import 'package:paysense/views/DrawerScreen.dart';
 import 'package:paysense/views/EnteraccScreen.dart';
 import 'package:paysense/views/HomeScreen.dart';
 import 'package:paysense/views/LoginScreen.dart';
+import 'package:paysense/views/NotificationScreen.dart';
 import 'package:paysense/views/SendamountScreen.dart';
 import 'package:paysense/views/SendmoneyScreen.dart';
 import 'package:paysense/views/SignupScreen.dart';
 import 'package:paysense/views/SplashScreen.dart';
 import 'package:paysense/views/TransconfirmScreen.dart';
 import 'package:paysense/views/TranscriptScreen.dart';
-import 'package:paysense/widgets/BottomBar.dart';
+import 'package:paysense/widgets/PersistentBottom.dart';
 
 class AppRoutes {
   static final routes = [
@@ -21,14 +23,23 @@ class AppRoutes {
       page: () => const SplashScreen(),
     ),
     GetPage(
+      name: RouteName.drawerScreen,
+      page: () => const DrawerScreen(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
       name: RouteName.homeScreen,
       page: () => const HomeScreen(),
       transition: Transition.leftToRight,
     ),
     GetPage(
+      name: RouteName.notificationScreen,
+      page: () => const NotiView(),
+      transition: Transition.leftToRight,
+    ),
+    GetPage(
       name: RouteName.signupScreen,
       page: () => const SignupScreen(),
-      transitionDuration: const Duration(seconds: 1),
       transition: Transition.leftToRight,
     ),
     GetPage(
@@ -37,7 +48,7 @@ class AppRoutes {
         transition: Transition.leftToRight),
     GetPage(
         name: RouteName.dashboardScreen,
-        page: () => BottomBar(),
+        page: () => Persistent(),
         transition: Transition.leftToRight),
     GetPage(
         name: RouteName.sendAmountScreen,

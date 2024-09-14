@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:paysense/controllers/BottombarController.dart';
 import 'package:get/get.dart';
+import 'package:paysense/controllers/BottombarController.dart';
 import 'package:paysense/utils/Colors.dart';
 
 class BottomBar extends StatelessWidget {
   BottomBar({super.key});
 
-  final BarController controller = Get.put(BarController());
+  final BarController controller = Get.find(); // Use Get.find() to access the existing controller
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,7 @@ class BottomBar extends StatelessWidget {
         children: [
           buildNavBarItem(0, Icons.home, "Home", isDarkMode, isLightMode),
           buildNavBarItem(1, Icons.chat, "Chat", isDarkMode, isLightMode),
-          buildNavBarItem(
-              2, Icons.credit_card, "Card", isDarkMode, isLightMode),
+          buildNavBarItem(2, Icons.credit_card, "Card", isDarkMode, isLightMode),
           buildNavBarItem(3, Icons.qr_code, "Scan Qr", isDarkMode, isLightMode),
           buildNavBarItem(4, Icons.shop, "Shop", isDarkMode, isLightMode),
         ],
@@ -37,8 +36,7 @@ class BottomBar extends StatelessWidget {
     return MaterialButton(
       minWidth: 40,
       onPressed: () {
-        controller.currentTab.value = index;
-        controller.pageController.jumpToPage(index);
+        controller.currentTab.value = index; // Update the tab index
       },
       child: Obx(() => Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -74,130 +72,3 @@ class BottomBar extends StatelessWidget {
                 : Colors.black;
   }
 }
-
-
-// class BottomBar extends StatelessWidget {
-//   BottomBar({super.key});
-
-//   final BarController controller = Get.put(BarController());
-//   final PageController pageController = PageController();
-//   RxInt currentTab = 0.obs;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-//     final isLightMode = Theme.of(context).brightness == Brightness.light;
-
-//     return Builder(
-//       builder: (context) {
-//         return BottomAppBar(
-//           elevation: 0,
-//           color: Colors.transparent,
-//           shape: const CircularNotchedRectangle(),
-//           child: Row(
-//             children: [
-//               buildNavBarItem(0, Icons.home, "Home", isDarkMode, isLightMode),
-//               buildNavBarItem(1, Icons.chat, "Chat", isDarkMode, isLightMode),
-//               buildNavBarItem(
-//                   2, Icons.credit_card, "Card", isDarkMode, isLightMode),
-//               buildNavBarItem(
-//                   3, Icons.qr_code, "Scan Qr", isDarkMode, isLightMode),
-//               buildNavBarItem(4, Icons.shop, "Shop", isDarkMode, isLightMode),
-//             ],
-//           ),
-//         );
-//       },
-//     );
-//   }
-
-//   MaterialButton buildNavBarItem(int index, IconData icon, String label,
-//       bool isDarkMode, bool isLightMode) {
-//     return MaterialButton(
-//       minWidth: 40,
-//       onPressed: () {
-//         controller.pageController.animateToPage(
-//           index,
-//           duration: const Duration(milliseconds: 400),
-//           curve: Curves.bounceIn,
-//         );
-//       },
-//       child: Obx(
-//         () => Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Icon(
-//               icon,
-//               size: 30,
-//               color: getTabColor(
-//                   index, controller.currentTab.value, isDarkMode, isLightMode),
-//             ),
-//             Text(
-//               label,
-//               style: GoogleFonts.poppins(
-//                 color: getTabColor(controller.currentTab.value, index,
-//                     isDarkMode, isLightMode),
-//                 fontSize: Get.width * 0.035,
-//                 fontWeight: FontWeight.w400,
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
-//   Color getTabColor(
-//       int check, int currentTab, bool isDarkMode, bool isLightMode) {
-//     if (currentTab == check) {
-//       return const Color(0xff67ADFF);
-//     } else {
-//       return isDarkMode
-//           ? ColorUtil.whitecolor
-//           : isLightMode
-//               ? ColorUtil.blackcolor
-//               : Colors.black;
-//     }
-//   }
-// }
-
-// class BottomBar extends StatefulWidget {
-//   const BottomBar({super.key});
-
-//   @override
-//   State<BottomBar> createState() => _BottomBarState();
-// }
-
-// class _BottomBarState extends State<BottomBar> {
-//   int selectedIndex = 0;
-
-//   final List<Widget> screens = [
-//     Center(child: Text('DashboardScreen')),
-//     Center(child: Text('ChatScreen')),
-//     Center(child: Text('CardView')),
-//     Center(child: Text('ShopScreen')),
-//   ];
-
-//   void onTabTapped(int index) {
-//     setState(() {
-//       selectedIndex = index;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: screens[selectedIndex],
-//       bottomNavigationBar: BottomNavigationBar(
-//         currentIndex: selectedIndex,
-//         onTap: onTabTapped,
-//         items: const [
-//           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-//           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-//           BottomNavigationBarItem(icon: Icon(Icons.credit_card), label: 'Card'),
-//           BottomNavigationBarItem(
-//               icon: Icon(Icons.shopping_bag), label: 'Shop'),
-//         ],
-//       ),
-//     );
-//   }
-// }

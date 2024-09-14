@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/LoginController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/views/UiTemplate.dart';
 import 'package:paysense/widgets/Button.dart';
@@ -193,6 +194,32 @@ class LoginScreen extends StatelessWidget {
                     textClr: ColorUtil.whitecolor,
                   ),
                 ),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't have and Account",
+                        style: GoogleFonts.poppins(
+                            fontSize: Get.width * 0.032,
+                            color: isDarkMode
+                                ? ColorUtil.whitecolor
+                                : ColorUtil.blackcolor,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            Get.toNamed(RouteName.signupScreen);
+                          },
+                          child: Text("Sign Up",
+                              style: GoogleFonts.poppins(
+                                fontSize: Get.width * 0.040,
+                                color: ColorUtil.bgblue,
+                                fontWeight: FontWeight.w500,
+                              ))),
+                    ],
+                  ),
+                )
               ],
             ),
           )),

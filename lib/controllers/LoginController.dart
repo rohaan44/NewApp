@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:paysense/controllers/UserController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/views/DashboardScreen.dart';
 
 class Logincontroller extends GetxController {
@@ -62,7 +63,7 @@ class Logincontroller extends GetxController {
       Get.put(UserController()).fetchUserData();
 
       Get.snackbar("Congratulations", "User Logged In Successfully");
-      Get.to(() => DashboardScreen());
+      Get.toNamed(RouteName.dashboardScreen);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.snackbar("Error", "No user found for that email.");

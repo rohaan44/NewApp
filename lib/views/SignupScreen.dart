@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paysense/controllers/SignupController.dart';
+import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/views/LoginScreen.dart';
 import 'package:paysense/views/UiTemplate.dart';
@@ -41,8 +42,8 @@ class SignupScreen extends StatelessWidget {
                       child: Text('Hello..!',
                           style: GoogleFonts.poppins(
                               color: isDarkMode
-                                  ? ColorUtil.blackcolor
-                                  : ColorUtil.whitecolor,
+                                  ? ColorUtil.whitecolor
+                                  : ColorUtil.blackcolor,
                               fontSize: 20,
                               height: 1.17,
                               fontWeight: FontWeight.w500)),
@@ -58,8 +59,8 @@ class SignupScreen extends StatelessWidget {
                                     height: 1.3,
                                     fontSize: 16,
                                     color: isDarkMode
-                                        ? ColorUtil.blackcolor
-                                        : ColorUtil.whitecolor,
+                                        ? ColorUtil.whitecolor
+                                        : ColorUtil.blackcolor,
                                     fontWeight: FontWeight.w400)),
                             TextSpan(
                                 text: ' Pay Sense',
@@ -74,8 +75,8 @@ class SignupScreen extends StatelessWidget {
                                     height: 1.5,
                                     fontSize: 16,
                                     color: isDarkMode
-                                        ? ColorUtil.blackcolor
-                                        : ColorUtil.whitecolor,
+                                        ? ColorUtil.whitecolor
+                                        : ColorUtil.blackcolor,
                                     fontWeight: FontWeight.w400))
                           ])),
                     ),
@@ -170,8 +171,8 @@ class SignupScreen extends StatelessWidget {
                                   text: 'You are signing up as an ',
                                   style: GoogleFonts.poppins(
                                       color: isDarkMode
-                                          ? ColorUtil.blackcolor
-                                          : ColorUtil.whitecolor,
+                                          ? ColorUtil.whitecolor
+                                          : ColorUtil.blackcolor,
                                       height: 1.5,
                                       fontSize: 16,
                                       fontWeight: FontWeight.w300)),
@@ -213,16 +214,16 @@ class SignupScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => LoginScreen());
+                        Get.toNamed(RouteName.loginScreen);
                       },
                       child: Text.rich(
                         TextSpan(
                           text: "Already have an account? ",
                           style: GoogleFonts.poppins(
                             color: isDarkMode
-                                ? ColorUtil.blackcolor
-                                : ColorUtil.whitecolor,
-                            fontSize: 16,
+                                ? ColorUtil.whitecolor
+                                : ColorUtil.blackcolor,
+                            fontSize: Get.width * 0.032,
                             fontWeight: FontWeight.w400,
                           ),
                           children: <TextSpan>[
@@ -230,7 +231,7 @@ class SignupScreen extends StatelessWidget {
                               text: 'Login',
                               style: GoogleFonts.poppins(
                                 color: Colors.blue,
-                                fontSize: 17,
+                                fontSize: Get.width * 0.040,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

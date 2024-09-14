@@ -11,9 +11,9 @@ class RouteName {
   static const String afterPayAmntScreen = '/afterPayAmntScreen';
   static const String transConfirmScreen = '/transConfirmScreen';
   static const String transScriptScreen = '/TransScriptScreen';
+  static const String notificationScreen = '/notificationScreen';
+  static const String drawerScreen = '/drawerScreen';
   // static const String accTypeScreen = '/acctypeView';
-  
-
 
   // static const String qrview = '/QrView';
   // static const String cardview = '/CardView';
@@ -25,8 +25,6 @@ class RouteName {
 
   // static const String chooseBankView = '/ChooseBankView';
   // static const String enterAccNoView = '/EnterAccNoView';
-
-
 
   // static const String requestMoneyView = '/RequestMoneyView';
   // static const String afterRequestAmntView = '/AfterReqAmntView';

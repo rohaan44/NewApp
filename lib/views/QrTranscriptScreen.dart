@@ -3,10 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:paysense/controllers/EnteraccController.dart';
 import 'package:paysense/controllers/SendingamountController.dart';
-import 'package:paysense/controllers/TranscriptController.dart';
 import 'package:paysense/controllers/UserController.dart';
+import 'package:paysense/controllers/qrTranscriptController.dart';
 import 'package:paysense/res/routes/RouteNames.dart';
 import 'package:paysense/utils/Colors.dart';
 import 'package:paysense/utils/Images.dart';
@@ -17,7 +16,7 @@ class QrTransScriptScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TranscriptController controller = Get.put(TranscriptController());
+    final QrTranscriptController controller = Get.put(QrTranscriptController());
     final SendingAmountController recieverAmount =
         Get.find<SendingAmountController>();
     var userData = Get.find<UserController>().userData;
